@@ -1,0 +1,26 @@
+{
+  "name": "Fude Development - AI-Powered Software Solutions",
+  "short_name": "Fude Development",
+  "description": "Leading AI-powered software development company specializing in custom web applications, mobile apps, machine learning solutions, and intelligent automation.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "categories": ["business", "productivity", "technology"],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/images/logo/fude-logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
