@@ -5,7 +5,7 @@ export const revalidate = 86400
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || 'https://fudedevelopments.com'
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://www.fude.digital/'
 
   // Use consistent date to improve caching
   const now = new Date()
