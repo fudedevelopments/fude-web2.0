@@ -88,15 +88,25 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
       {
         url: '/images/logo/fude-logo.svg',
         sizes: 'any',
         type: 'image/svg+xml',
       },
+      {
+        url: '/favicon.svg',
+        sizes: 'any',
+        type: 'image/svg+xml',
+      },
     ],
-    shortcut: '/favicon.ico',
-    apple: [{ url: '/favicon.ico', sizes: '180x180', type: 'image/x-icon' }],
+    shortcut: '/favicon.svg',
+    apple: [
+      {
+        url: '/images/logo/fude-logo.svg',
+        sizes: '180x180',
+        type: 'image/svg+xml',
+      },
+    ],
   },
   manifest: '/manifest.json',
   openGraph: {
