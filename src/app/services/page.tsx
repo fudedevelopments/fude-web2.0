@@ -3,25 +3,43 @@
 import { useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import ServicesGrid from '@/components/services/ServicesGrid'
+import { preloadResources } from '@/lib/cache-utils'
 
-// Import service components
+// Import service components with better caching
 const ProcessSteps = dynamic(
   () => import('@/components/services/ProcessSteps'),
-  { ssr: false }
+  {
+    ssr: false,
+    loading: () => (
+      <div className='animate-pulse bg-gray-800 h-64 rounded-lg' />
+    ),
+  }
 )
 const TechnologyStack = dynamic(
   () => import('@/components/services/TechnologyStack'),
-  { ssr: false }
+  {
+    ssr: false,
+    loading: () => (
+      <div className='animate-pulse bg-gray-800 h-64 rounded-lg' />
+    ),
+  }
 )
 const WhyChooseUs = dynamic(() => import('@/components/services/WhyChooseUs'), {
   ssr: false,
+  loading: () => <div className='animate-pulse bg-gray-800 h-64 rounded-lg' />,
 })
 const CTASection = dynamic(() => import('@/components/services/CTASection'), {
   ssr: false,
+  loading: () => <div className='animate-pulse bg-gray-800 h-32 rounded-lg' />,
 })
 const YouTubeSection = dynamic(
   () => import('@/components/services/YouTubeSection'),
-  { ssr: false }
+  {
+    ssr: false,
+    loading: () => (
+      <div className='animate-pulse bg-gray-800 h-96 rounded-lg' />
+    ),
+  }
 )
 const ChatbaseChatbot = dynamic(
   () => import('@/components/ui/ChatbaseChatbot'),
@@ -32,6 +50,9 @@ const ChatbaseChatbot = dynamic(
 
 export default function ServicesPage() {
   useEffect(() => {
+    // Preload critical resources
+    preloadResources()
+
     // Add custom animations to document head
     const style = document.createElement('style')
     style.textContent = `

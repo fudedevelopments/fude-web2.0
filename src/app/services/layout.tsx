@@ -1,5 +1,11 @@
 import { Metadata } from 'next'
 
+const baseUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://fudedevelopments.com'
+
+// Enable static generation with revalidation every 7 days
+export const revalidate = 604800
+
 export const metadata: Metadata = {
   title: 'Our Services - Android App & Web Development Company in Erode',
   description:
@@ -29,7 +35,7 @@ export const metadata: Metadata = {
     title: 'Fude Development Services - Android App & Web Development in Erode',
     description:
       'Comprehensive software development services including Android apps, websites, e-commerce solutions, and custom software development in Erode, Tamil Nadu.',
-    url: 'https://fudedevelopments.com/services',
+    url: `${baseUrl}/services`,
     images: [
       {
         url: '/images/services-og.jpg',
@@ -45,7 +51,7 @@ export const metadata: Metadata = {
       'Comprehensive software development services including Android apps, websites, and custom software development in Erode, Tamil Nadu.',
   },
   alternates: {
-    canonical: 'https://fudedevelopments.com/services',
+    canonical: `${baseUrl}/services`,
   },
 }
 

@@ -6,6 +6,8 @@ import Footer from '@/components/ui/Footer'
 import NeuralBackgroundWrapper from '@/components/3d/NeuralBackgroundWrapper'
 import { NavigationProvider } from '@/providers/NavigationProvider'
 import Analytics from '@/components/Analytics'
+import PWAInstaller from '@/components/ui/PWAInstaller'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const poppins = Poppins({
@@ -14,8 +16,11 @@ const poppins = Poppins({
   variable: '--font-poppins',
 })
 
+const baseUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://fudedevelopments.com'
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://fudedevelopments.com'),
+  metadataBase: new URL(baseUrl),
   title: {
     default:
       'Fude Development – AI-Powered Software Solutions & Web Development',
@@ -97,7 +102,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://fudedevelopments.com',
+    url: baseUrl,
     siteName: 'Fude Development',
     title:
       'Fude Development – AI-Powered Software Solutions & Web Development in Erode',
@@ -144,13 +149,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://fudedevelopments.com'
+
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Fude Development',
     legalName: 'Fude Development',
-    url: 'https://fudedevelopments.com',
-    logo: 'https://fudedevelopments.com/images/logo/fude-logo.svg',
+    url: siteUrl,
+    logo: `${siteUrl}/images/logo/fude-logo.svg`,
     description:
       'Leading AI-powered software development company in Erode, Tamil Nadu specializing in custom web applications, Android mobile apps, machine learning solutions, and intelligent business automation.',
     foundingDate: '2020',
@@ -201,10 +209,10 @@ export default function RootLayout({
   const localBusinessData = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': 'https://fudedevelopments.com/#organization',
+    '@id': `${siteUrl}/#organization`,
     name: 'Fude Development',
-    image: 'https://fudedevelopments.com/images/logo/fude-logo.svg',
-    telephone: '+91-XXXXXXXXXX',
+    image: `${siteUrl}/images/logo/fude-logo.svg`,
+    telephone: '+91 7904329569',
     email: 'contact@fudedevelopments.com',
     address: {
       '@type': 'PostalAddress',
@@ -219,7 +227,7 @@ export default function RootLayout({
       latitude: '11.3410',
       longitude: '77.7172',
     },
-    url: 'https://fudedevelopments.com',
+    url: siteUrl,
     sameAs: [
       'https://linkedin.com/company/fudedevelopments',
       'https://github.com/fudedevelopments',
@@ -251,7 +259,7 @@ export default function RootLayout({
         <meta name='apple-mobile-web-app-capable' content='yes' />
         <meta name='apple-mobile-web-app-status-bar-style' content='black' />
         <meta name='format-detection' content='telephone=no' />
-        <link rel='canonical' href='https://fudedevelopments.com' />
+        <link rel='canonical' href={siteUrl} />
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
@@ -265,6 +273,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} ${poppins.variable} font-sans`}>
         <Analytics />
+        <PWAInstaller />
 
         <NavigationProvider>
           {/* Neural Network Background - Fixed and shared across all pages */}
@@ -274,6 +283,7 @@ export default function RootLayout({
           <div className='relative' style={{ zIndex: 10 }}>
             <AppBar />
             <main className='relative'>{children}</main>
+            <SpeedInsights />
             <Footer />
           </div>
         </NavigationProvider>

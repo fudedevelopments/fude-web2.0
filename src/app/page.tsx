@@ -1,9 +1,10 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import { motion } from 'framer-motion'
 import LoadingLink from '@/components/ui/LoadingLink'
+import { preloadResources } from '@/lib/cache-utils'
 import {
   Brain,
   Sparkles,
@@ -49,6 +50,11 @@ export default function Home() {
     null
   )
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+
+  // Preload critical resources for better performance
+  useEffect(() => {
+    preloadResources()
+  }, [])
 
   // Mouse gradient effect handler
   const handleCardMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {

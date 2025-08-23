@@ -1,6 +1,6 @@
 export const seoConfig = {
   // Base URL for the site
-  baseUrl: 'https://fudedevelopments.com',
+  baseUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.fude.digital',
 
   // Default meta information
   defaultMeta: {

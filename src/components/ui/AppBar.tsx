@@ -40,28 +40,8 @@ export default function AppBar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Update scrolled state
+      // Only update scrolled state, don't change active section
       setScrolled(window.scrollY > 20)
-
-      // Find active section based on scroll position
-      const sectionElements = sections
-        .map((section) => ({
-          id: section.id,
-          element: document.getElementById(section.id),
-        }))
-        .filter((section) => section.element)
-
-      if (sectionElements.length > 0) {
-        const currentPosition = window.scrollY + 100
-
-        for (let i = sectionElements.length - 1; i >= 0; i--) {
-          const section = sectionElements[i]
-          if (section.element && section.element.offsetTop <= currentPosition) {
-            setActiveSection(section.id)
-            break
-          }
-        }
-      }
     }
 
     const handleResize = () => {
