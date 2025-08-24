@@ -123,6 +123,16 @@ const teamMembers = [
       github: 'https://github.com/mathan44862',
     },
   },
+  {
+    name: 'Raja Sibi R',
+    role: 'React Native Developer',
+    bio: 'Expert React Native developer specializing in cross-platform mobile application development. Skilled in creating high-performance mobile apps with seamless user experiences.',
+    image: '/images/team/sibi.jpg',
+    socialLinks: {
+      linkedin: '#',
+      github: '#',
+    },
+  },
 ]
 
 export default function AboutUs() {
