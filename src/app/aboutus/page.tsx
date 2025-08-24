@@ -129,8 +129,9 @@ const teamMembers = [
     bio: 'Expert React Native developer specializing in cross-platform mobile application development. Skilled in creating high-performance mobile apps with seamless user experiences.',
     image: '/images/team/sibi.jpg',
     socialLinks: {
-      linkedin: '#',
-      github: '#',
+      linkedin:
+        'https://www.linkedin.com/in/raja-sibi-r-41463a26b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      github: 'https://github.com/Rajasibi6',
     },
   },
 ]
