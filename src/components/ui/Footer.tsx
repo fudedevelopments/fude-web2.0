@@ -263,10 +263,6 @@ export default function Footer() {
                 </span>
                 . All rights reserved.
               </p>
-              <p className='text-gray-600 text-xs mt-1'>
-                Crafted with <span className='text-red-400'>♥</span> and
-                AI-powered innovation
-              </p>
             </motion.div>
           </div>
         </div>
