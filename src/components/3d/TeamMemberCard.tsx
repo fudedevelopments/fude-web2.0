@@ -142,7 +142,9 @@ export default function TeamMemberCard({
                 style={{
                   objectFit: 'cover',
                   objectPosition:
-                    name === 'Mathan M' ? 'center top' : 'center center',
+                    name === 'Mathan M' || name === 'Raja Sibi R'
+                      ? 'center top'
+                      : 'center center',
                 }}
                 className='transition-transform duration-500'
                 onError={handleImageError}
