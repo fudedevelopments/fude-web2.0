@@ -3,9 +3,6 @@ import { Metadata } from 'next'
 const baseUrl =
   process.env.NEXT_PUBLIC_SITE_URL || 'https://fudedevelopments.com'
 
-// Enable static generation with revalidation every 30 days
-export const revalidate = 2592000
-
 export const metadata: Metadata = {
   title: 'Contact Us - Android App & Web Development Company in Erode',
   description:

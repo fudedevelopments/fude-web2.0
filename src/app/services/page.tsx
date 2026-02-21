@@ -1,93 +1,118 @@
-'use client'
+﻿import Link from 'next/link'
 
-import { useEffect } from 'react'
-import dynamic from 'next/dynamic'
-import ServicesGrid from '@/components/services/ServicesGrid'
-import { preloadResources } from '@/lib/cache-utils'
+const services = [
+  { title: 'Web Development', description: 'Modern, responsive websites built with React, Next.js, and TypeScript.' },
+  { title: 'Mobile Apps', description: 'Native and cross-platform mobile apps using React Native and Flutter.' },
+  { title: 'AI Solutions', description: 'Custom AI and machine learning solutions tailored to your business.' },
+  { title: 'Cloud Services', description: 'Scalable cloud infrastructure on AWS, GCP, and Azure.' },
+  { title: 'Backend Systems', description: 'Robust server-side architecture, APIs, and database solutions.' },
+  { title: 'UI/UX Design', description: 'User-centered design that converts visitors and engages users.' },
+]
 
-// Import service components with better caching
-const ProcessSteps = dynamic(
-  () => import('@/components/services/ProcessSteps'),
-  {
-    ssr: false,
-    loading: () => (
-      <div className='animate-pulse bg-gray-800 h-64 rounded-lg' />
-    ),
-  }
-)
-const TechnologyStack = dynamic(
-  () => import('@/components/services/TechnologyStack'),
-  {
-    ssr: false,
-    loading: () => (
-      <div className='animate-pulse bg-gray-800 h-64 rounded-lg' />
-    ),
-  }
-)
-const WhyChooseUs = dynamic(() => import('@/components/services/WhyChooseUs'), {
-  ssr: false,
-  loading: () => <div className='animate-pulse bg-gray-800 h-64 rounded-lg' />,
-})
-const CTASection = dynamic(() => import('@/components/services/CTASection'), {
-  ssr: false,
-  loading: () => <div className='animate-pulse bg-gray-800 h-32 rounded-lg' />,
-})
-const YouTubeSection = dynamic(
-  () => import('@/components/services/YouTubeSection'),
-  {
-    ssr: false,
-    loading: () => (
-      <div className='animate-pulse bg-gray-800 h-96 rounded-lg' />
-    ),
-  }
-)
-const ChatbaseChatbot = dynamic(
-  () => import('@/components/ui/ChatbaseChatbot'),
-  {
-    ssr: false,
-  }
-)
+const processSteps = [
+  { step: '01', title: 'Discovery', description: 'We understand your business needs and project requirements.' },
+  { step: '02', title: 'Planning', description: 'We create a detailed roadmap with milestones and deliverables.' },
+  { step: '03', title: 'Development', description: 'Our team builds your solution using best practices.' },
+  { step: '04', title: 'Testing', description: 'Rigorous quality assurance ensures everything works perfectly.' },
+  { step: '05', title: 'Launch', description: 'We deploy your project and provide ongoing support.' },
+]
+
+const technologies = [
+  'React', 'Next.js', 'TypeScript', 'Node.js', 'Python',
+  'Flutter', 'React Native', 'PostgreSQL', 'MongoDB',
+  'AWS', 'Docker', 'TensorFlow',
+]
 
 export default function ServicesPage() {
-  useEffect(() => {
-    // Preload critical resources
-    preloadResources()
-
-    // Add custom animations to document head
-    const style = document.createElement('style')
-    style.textContent = `
-      @keyframes slideRight {
-        0% { transform: translateX(-100%); opacity: 0; }
-        50% { opacity: 1; }
-        100% { transform: translateX(200%); opacity: 0; }
-      }
-      @keyframes slideDown {
-        0% { transform: translateY(-100%); opacity: 0; }
-        50% { opacity: 1; }
-        100% { transform: translateY(200%); opacity: 0; }
-      }
-    `
-    document.head.appendChild(style)
-
-    return () => {
-      document.head.removeChild(style)
-    }
-  }, [])
-
   return (
-    <>
-      {/* Chatbase Chatbot */}
-      <ChatbaseChatbot />
+    <div>
+      {/* Hero */}
+      <section className='pt-32 pb-16 px-4 sm:px-6 lg:px-8'>
+        <div className='max-w-4xl mx-auto text-center'>
+          <h1 className='text-4xl sm:text-5xl font-bold text-gray-900 mb-6 tracking-tight'>
+            Our <span className='text-blue-900'>Services</span>
+          </h1>
+          <p className='text-lg text-gray-500 max-w-3xl mx-auto leading-relaxed'>
+            Comprehensive solutions tailored to accelerate your business growth with cutting-edge technology.
+          </p>
+        </div>
+      </section>
 
-      {/* Main content - Neural background is now in layout */}
-      <div className='relative'>
-        <ServicesGrid />
-        <ProcessSteps />
-        <TechnologyStack />
-        <WhyChooseUs />
-        <CTASection />
-        <YouTubeSection />
-      </div>
-    </>
+      {/* Services Grid */}
+      <section className='py-16 px-4 sm:px-6 lg:px-8 bg-gray-50/70'>
+        <div className='max-w-6xl mx-auto'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+            {services.map((service) => (
+              <div key={service.title} className='bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-md transition-all duration-200'>
+                <div className='w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-4'>
+                  <div className='w-2.5 h-2.5 bg-blue-900 rounded-full' />
+                </div>
+                <h3 className='text-lg font-semibold text-gray-900 mb-2'>{service.title}</h3>
+                <p className='text-sm text-gray-500 leading-relaxed'>{service.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process */}
+      <section className='py-16 px-4 sm:px-6 lg:px-8'>
+        <div className='max-w-4xl mx-auto'>
+          <div className='text-center mb-12'>
+            <h2 className='text-3xl sm:text-4xl font-bold text-gray-900 mb-4 tracking-tight'>
+              Our <span className='text-blue-900'>Process</span>
+            </h2>
+            <p className='text-gray-500 text-lg'>How we bring your ideas to life</p>
+          </div>
+          <div className='space-y-4'>
+            {processSteps.map((item) => (
+              <div key={item.step} className='flex gap-6 items-start bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-md transition-all duration-200'>
+                <span className='text-2xl font-bold text-blue-900 shrink-0 w-10'>{item.step}</span>
+                <div>
+                  <h3 className='font-semibold text-gray-900 mb-1'>{item.title}</h3>
+                  <p className='text-sm text-gray-500'>{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Technologies */}
+      <section className='py-16 px-4 sm:px-6 lg:px-8 bg-gray-50/70'>
+        <div className='max-w-4xl mx-auto'>
+          <div className='text-center mb-12'>
+            <h2 className='text-3xl sm:text-4xl font-bold text-gray-900 mb-4 tracking-tight'>
+              Technology <span className='text-blue-900'>Stack</span>
+            </h2>
+            <p className='text-gray-500 text-lg'>Tools and frameworks we work with</p>
+          </div>
+          <div className='flex flex-wrap gap-3 justify-center'>
+            {technologies.map((tech) => (
+              <span key={tech} className='px-5 py-2.5 bg-white text-gray-700 rounded-xl text-sm font-medium border border-gray-100 hover:border-blue-200 hover:text-blue-900 transition-colors shadow-sm'>
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className='py-16 px-4 sm:px-6 lg:px-8'>
+        <div className='max-w-4xl mx-auto'>
+          <div className='bg-blue-900 rounded-3xl p-10 sm:p-14 text-center'>
+            <h2 className='text-3xl font-bold text-white mb-4 tracking-tight'>
+              Ready to Start Your Project?
+            </h2>
+            <p className='text-blue-200 text-lg mb-8 max-w-2xl mx-auto'>
+              Get in touch to discuss your requirements and receive a free consultation.
+            </p>
+            <Link href='/contactus' className='inline-flex items-center justify-center px-8 py-3.5 bg-white text-blue-900 font-semibold rounded-lg hover:bg-blue-50 transition-colors'>
+              Get a Free Quote
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
   )
 }

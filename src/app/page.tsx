@@ -1,531 +1,209 @@
-'use client'
-
-import { useState, useEffect } from 'react'
-import dynamic from 'next/dynamic'
-import { motion } from 'framer-motion'
-import LoadingLink from '@/components/ui/LoadingLink'
-import { preloadResources } from '@/lib/cache-utils'
-import {
-  Brain,
-  Sparkles,
-  Globe,
-  Shield,
-  Rocket,
-  Users,
-  Award,
-  Lightbulb,
-  Target,
-  MapPin,
-  Mail,
-  Phone,
-  Coffee,
-  Heart,
-  Briefcase,
-  BookOpen,
-  Handshake,
-  Eye,
-  MessageCircle,
-} from 'lucide-react'
-
-// Dynamically import components with no SSR for performance
-const ChatbaseChatbot = dynamic(
-  () => import('@/components/ui/ChatbaseChatbot'),
-  {
-    ssr: false,
-  }
-)
-const CustomTypewriter = dynamic(
-  () => import('@/components/ui/CustomTypewriter'),
-  { ssr: false }
-)
+﻿import Link from 'next/link'
 
 export default function Home() {
-  const [hoveredValueIndex, setHoveredValueIndex] = useState<number | null>(
-    null
-  )
-  const [hoveredChoiceIndex, setHoveredChoiceIndex] = useState<number | null>(
-    null
-  )
-  const [hoveredCultureIndex, setHoveredCultureIndex] = useState<number | null>(
-    null
-  )
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-
-  // Preload critical resources for better performance
-  useEffect(() => {
-    preloadResources()
-  }, [])
-
-  // Mouse gradient effect handler
-  const handleCardMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect()
-    const x = ((e.clientX - rect.left) / rect.width) * 100
-    const y = ((e.clientY - rect.top) / rect.height) * 100
-    setMousePosition({ x, y })
-  }
-
-  const getCardGradientStyle = (isHovered: boolean) => ({
-    background: isHovered
-      ? `radial-gradient(600px circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.15), transparent 40%)`
-      : 'transparent',
-    transition: 'background 0.3s ease',
-  })
-
-  // Company data
-
-  // Company stats
-  const companyStats = [
-    { label: 'Years of Excellence', value: '5+', icon: Award },
-    { label: 'Projects Delivered', value: '50+', icon: Rocket },
-    { label: 'Happy Clients', value: '30+', icon: Heart },
-    { label: 'Team Members', value: '10+', icon: Users },
+  const stats = [
+    { label: 'Years of Excellence', value: '5+' },
+    { label: 'Projects Delivered', value: '50+' },
+    { label: 'Happy Clients', value: '30+' },
+    { label: 'Team Members', value: '10+' },
   ]
 
-  // Company values
-  const companyValues = [
+  const values = [
     {
-      icon: Eye,
       title: 'Our Vision',
       description:
-        'To be the leading AI-powered development company that transforms businesses through innovative technology solutions.',
-      color: 'from-blue-500 to-cyan-500',
+        'To be the leading development company that transforms businesses through innovative technology solutions.',
     },
     {
-      icon: Target,
       title: 'Our Mission',
       description:
-        'Empowering businesses with cutting-edge AI solutions, responsive designs, and scalable applications that drive growth and success.',
-      color: 'from-indigo-500 to-purple-500',
+        'Empowering businesses with cutting-edge solutions, responsive designs, and scalable applications that drive growth.',
     },
     {
-      icon: Heart,
       title: 'Our Values',
       description:
-        'Innovation, Quality, Integrity, and Customer Success are at the core of everything we do at Fude Developments.',
-      color: 'from-pink-500 to-red-500',
+        'Innovation, Quality, Integrity, and Customer Success are at the core of everything we do.',
     },
   ]
 
-  // Why choose us points
   const whyChooseUs = [
     {
-      icon: Brain,
       title: 'AI-First Approach',
-      description:
-        'We integrate artificial intelligence into every solution for smarter, more efficient results.',
+      description: 'We integrate artificial intelligence into every solution for smarter, more efficient results.',
     },
     {
-      icon: Rocket,
       title: 'Fast Delivery',
-      description:
-        'Agile development methodology ensures quick turnaround without compromising quality.',
+      description: 'Agile development methodology ensures quick turnaround without compromising quality.',
     },
     {
-      icon: Shield,
       title: 'Quality Assured',
-      description:
-        'Rigorous testing and quality control processes guarantee reliable, secure solutions.',
+      description: 'Rigorous testing and quality control processes guarantee reliable, secure solutions.',
     },
     {
-      icon: Handshake,
       title: 'Client Partnership',
-      description:
-        'We work closely with clients as partners, not just service providers.',
+      description: 'We work closely with clients as partners, not just service providers.',
     },
+  ]
+
+  const culture = [
+    { title: 'Work-Life Balance', description: 'We believe in maintaining a healthy balance between professional excellence and personal well-being.' },
+    { title: 'Innovation First', description: 'Every team member is encouraged to think creatively and contribute innovative ideas.' },
+    { title: 'Continuous Learning', description: "We invest in our team's growth through training and skill development programs." },
+    { title: 'Collaborative Team', description: 'Open communication and teamwork are the foundation of our success.' },
+    { title: 'Goal-Oriented', description: 'We set clear objectives and work systematically to achieve exceptional results.' },
+    { title: 'Global Perspective', description: 'Our diverse team brings international experience to every project.' },
   ]
 
   return (
-    <>
-      {/* Chatbase Chatbot */}
-      <ChatbaseChatbot />
+    <div>
+      {/* Hero */}
+      <section className='pt-32 pb-20 px-4 sm:px-6 lg:px-8'>
+        <div className='max-w-4xl mx-auto text-center'>
+          <p className='inline-block text-sm font-medium text-blue-900 bg-blue-50 px-4 py-1.5 rounded-full mb-6 border border-blue-100'>
+            Software Development Company
+          </p>
+          <h1 className='text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight'>
+            Welcome to{' '}
+            <span className='text-blue-900'>Fude</span>{' '}
+            <span className='text-gray-900'>Developments</span>
+          </h1>
+          <p className='text-lg sm:text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed'>
+            Building the future with innovative technology. We transform ideas into powerful digital solutions.
+          </p>
+          <div className='flex flex-col sm:flex-row gap-4 justify-center mb-16'>
+            <Link
+              href='/services'
+              className='inline-flex items-center justify-center px-8 py-3.5 bg-blue-900 text-white font-medium rounded-lg hover:bg-blue-800 transition-colors shadow-sm'
+            >
+              Explore Services
+            </Link>
+            <Link
+              href='/contactus'
+              className='inline-flex items-center justify-center px-8 py-3.5 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors'
+            >
+              Get in Touch
+            </Link>
+          </div>
 
-      {/* Main content - Neural background is now in layout */}
-      <div className='relative'>
-        {/* Hero Section */}
-        <section
-          id='home'
-          className='relative min-h-screen flex items-center justify-center pt-16 overflow-hidden'
-        >
-          <div className='container mx-auto px-4 sm:px-6 lg:px-8 mt-20 lg:mt-16'>
-            <div className='max-w-4xl mx-auto'>
-              <div className='flex items-center justify-center'>
-                {/* Main Content - Centered */}
-                <div className='text-center w-full'>
-                  <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                  >
-                    <div className='inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-indigo-500/10 to-purple-500/10 border border-indigo-500/20 mb-6'>
-                      <Sparkles className='w-5 h-5 text-indigo-400 mr-2' />
-                      <span className='text-sm font-medium text-indigo-300'>
-                        AI-Powered Development
-                      </span>
-                    </div>
-
-                    <h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 leading-tight'>
-                      Welcome to{' '}
-                      <span className='text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500'>
-                        Fude
-                      </span>{' '}
-                      <br />
-                      <span className='text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-red-500'>
-                        Developments
-                      </span>
-                    </h1>
-                  </motion.div>
-
-                  <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
-                    className='text-xl sm:text-2xl md:text-3xl text-gray-300 mb-8 min-h-[4rem] font-light'
-                  >
-                    <CustomTypewriter
-                      strings={[
-                        'Building the Future with AI ⚡',
-                        'Transforming Ideas into Reality 🚀',
-                        'Your Trusted Development Partner 🤝',
-                      ]}
-                      loop={true}
-                      typeSpeed={60}
-                      deleteSpeed={40}
-                      delayBetweenStrings={2000}
-                    />
-                  </motion.div>
-
-                  <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.6 }}
-                    className='flex flex-col sm:flex-row gap-4 justify-center mb-12'
-                  >
-                    <LoadingLink href='/services'>
-                      <motion.button
-                        className='relative overflow-hidden bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-2xl text-lg font-semibold group transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/25'
-                        whileHover={{ scale: 1.05, y: -2 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <span className='relative flex items-center justify-center space-x-2'>
-                          <Rocket className='w-5 h-5' />
-                          <span>Explore Services</span>
-                        </span>
-                        <motion.div
-                          className='absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500'
-                          initial={{ x: '-100%' }}
-                          whileHover={{ x: '0%' }}
-                          transition={{ duration: 0.3 }}
-                        />
-                      </motion.button>
-                    </LoadingLink>
-                  </motion.div>
-
-                  {/* Company Stats - Horizontal Layout */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.8 }}
-                    className='grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 mb-8'
-                  >
-                    {companyStats.map((stat, index) => (
-                      <motion.div
-                        key={index}
-                        className='relative text-center group'
-                        whileHover={{ scale: 1.05 }}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.9 + index * 0.1 }}
-                      >
-                        <div className='relative bg-gray-900/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-4 hover:border-indigo-500/50 transition-all duration-300 h-32 flex flex-col items-center justify-center'>
-                          <stat.icon className='w-12 h-12 text-indigo-400 mb-3' />
-                          <div className='text-xl sm:text-2xl font-bold text-white mb-1'>
-                            {stat.value}
-                          </div>
-                          <div className='text-xs text-gray-400 font-medium text-center leading-tight px-2'>
-                            {stat.label}
-                          </div>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </motion.div>
-                </div>
+          {/* Stats */}
+          <div className='grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6'>
+            {stats.map((stat) => (
+              <div key={stat.label} className='bg-white border border-gray-100 rounded-2xl p-6 text-center shadow-sm'>
+                <div className='text-3xl font-bold text-blue-900 mb-1'>{stat.value}</div>
+                <div className='text-sm text-gray-500'>{stat.label}</div>
               </div>
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* About Company Section */}
-        <section id='about' className='py-16 sm:py-24 relative'>
-          <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className='text-center mb-16'
-            >
-              <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4'>
-                About{' '}
-                <span className='text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500'>
-                  Fude Developments
-                </span>
-              </h2>
-              <p className='max-w-3xl mx-auto text-gray-400 text-lg leading-relaxed'>
-                Founded with a vision to revolutionize the digital landscape,
-                Fude Developments is a cutting-edge technology company
-                specializing in AI-powered solutions, web development, and
-                mobile applications. We combine innovation with expertise to
-                deliver exceptional results that drive business growth.
-              </p>
-            </motion.div>
-
-            <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16'>
-              {companyValues.map((value, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                  whileHover={{ y: -5 }}
-                  className='relative bg-gray-900/50 backdrop-blur-xl border border-gray-700/50 rounded-3xl p-8 text-center hover:border-indigo-500/50 transition-all duration-300 overflow-hidden'
-                  onMouseEnter={() => setHoveredValueIndex(index)}
-                  onMouseLeave={() => setHoveredValueIndex(null)}
-                  onMouseMove={handleCardMouseMove}
-                >
-                  <div
-                    className='absolute inset-0 rounded-3xl'
-                    style={getCardGradientStyle(hoveredValueIndex === index)}
-                  />
-                  <div
-                    className={`relative z-10 w-20 h-20 bg-gradient-to-br ${value.color} rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg`}
-                  >
-                    <value.icon className='w-10 h-10 text-white drop-shadow-lg' />
-                  </div>
-                  <h3 className='relative z-10 text-2xl font-bold text-white mb-4'>
-                    {value.title}
-                  </h3>
-                  <p className='relative z-10 text-gray-400 leading-relaxed'>
-                    {value.description}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
+      {/* About */}
+      <section className='py-20 px-4 sm:px-6 lg:px-8 bg-gray-50/70'>
+        <div className='max-w-6xl mx-auto'>
+          <div className='text-center mb-14'>
+            <h2 className='text-3xl sm:text-4xl font-bold text-gray-900 mb-4 tracking-tight'>
+              About <span className='text-blue-900'>Fude Developments</span>
+            </h2>
+            <p className='max-w-3xl mx-auto text-gray-500 text-lg leading-relaxed'>
+              Founded with a vision to revolutionize the digital landscape, Fude Developments
+              is a cutting-edge technology company specializing in AI-powered solutions,
+              web development, and mobile applications.
+            </p>
           </div>
-        </section>
-
-        {/* Why Choose Us Section */}
-        <section className='py-16 sm:py-24 relative'>
-          <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className='text-center mb-16'
-            >
-              <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4'>
-                Why Choose{' '}
-                <span className='text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500'>
-                  Us?
-                </span>
-              </h2>
-              <p className='max-w-2xl mx-auto text-gray-400 text-lg'>
-                We combine innovation, expertise, and dedication to deliver
-                exceptional results that exceed expectations
-              </p>
-            </motion.div>
-
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
-              {whyChooseUs.map((point, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  whileHover={{ y: -5 }}
-                  className='relative bg-gray-900/50 backdrop-blur-xl border border-gray-700/50 rounded-2xl p-6 text-center hover:border-indigo-500/50 transition-all duration-300 overflow-hidden'
-                  onMouseEnter={() => setHoveredChoiceIndex(index)}
-                  onMouseLeave={() => setHoveredChoiceIndex(null)}
-                  onMouseMove={handleCardMouseMove}
-                >
-                  <div
-                    className='absolute inset-0 rounded-2xl'
-                    style={getCardGradientStyle(hoveredChoiceIndex === index)}
-                  />
-                  <div className='relative z-10 w-16 h-16 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-indigo-500/30'>
-                    <point.icon className='w-8 h-8 text-indigo-400' />
-                  </div>
-                  <h3 className='relative z-10 text-xl font-bold text-white mb-3'>
-                    {point.title}
-                  </h3>
-                  <p className='relative z-10 text-gray-400 text-sm leading-relaxed'>
-                    {point.description}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Company Culture Section */}
-        <section className='py-16 sm:py-24 relative'>
-          <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className='text-center mb-16'
-            >
-              <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4'>
-                Our{' '}
-                <span className='text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500'>
-                  Culture
-                </span>
-              </h2>
-              <p className='max-w-2xl mx-auto text-gray-400 text-lg'>
-                At Fude Developments, we believe in creating an environment that
-                fosters innovation, creativity, and growth
-              </p>
-            </motion.div>
-
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-              {[
-                {
-                  icon: Coffee,
-                  title: 'Work-Life Balance',
-                  description:
-                    'We believe in maintaining a healthy balance between professional excellence and personal well-being.',
-                },
-                {
-                  icon: Lightbulb,
-                  title: 'Innovation First',
-                  description:
-                    'Every team member is encouraged to think creatively and contribute innovative ideas to our projects.',
-                },
-                {
-                  icon: BookOpen,
-                  title: 'Continuous Learning',
-                  description:
-                    "We invest in our team's growth through training, conferences, and skill development programs.",
-                },
-                {
-                  icon: Users,
-                  title: 'Collaborative Team',
-                  description:
-                    'Open communication and teamwork are the foundation of our success and project excellence.',
-                },
-                {
-                  icon: Target,
-                  title: 'Goal-Oriented',
-                  description:
-                    'We set clear objectives and work systematically to achieve exceptional results for our clients.',
-                },
-                {
-                  icon: Globe,
-                  title: 'Global Perspective',
-                  description:
-                    'Our diverse team brings international experience and perspectives to every project we undertake.',
-                },
-              ].map((culture, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  whileHover={{ y: -5 }}
-                  className='relative bg-gray-900/50 backdrop-blur-xl border border-gray-700/50 rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 overflow-hidden'
-                  onMouseEnter={() => setHoveredCultureIndex(index)}
-                  onMouseLeave={() => setHoveredCultureIndex(null)}
-                  onMouseMove={handleCardMouseMove}
-                >
-                  <div
-                    className='absolute inset-0 rounded-2xl'
-                    style={getCardGradientStyle(hoveredCultureIndex === index)}
-                  />
-                  <div className='relative z-10 w-16 h-16 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center mb-4 border border-indigo-500/30'>
-                    <culture.icon className='w-8 h-8 text-indigo-400' />
-                  </div>
-                  <h3 className='relative z-10 text-xl font-bold text-white mb-3'>
-                    {culture.title}
-                  </h3>
-                  <p className='relative z-10 text-gray-400 leading-relaxed'>
-                    {culture.description}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Call to Action Section */}
-        <section id='contact' className='py-16 sm:py-24 relative'>
-          <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className='text-center bg-gradient-to-br from-indigo-500/10 to-purple-500/10 rounded-3xl p-12 border border-indigo-500/20'
-            >
-              <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4'>
-                Ready to Transform Your{' '}
-                <span className='text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500'>
-                  Business?
-                </span>
-              </h2>
-              <p className='max-w-2xl mx-auto text-gray-400 text-lg mb-8'>
-                Let&apos;s discuss your project and explore how we can help you
-                achieve your goals with cutting-edge technology and innovative
-                solutions.
-              </p>
-              <div className='flex flex-col sm:flex-row gap-4 justify-center mb-8'>
-                <LoadingLink href='/contactus' className='w-full sm:w-auto'>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className='bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-base sm:text-lg hover:from-indigo-500 hover:to-purple-500 transition-all duration-300 flex items-center justify-center space-x-2 w-full'
-                  >
-                    <MessageCircle className='w-5 h-5' />
-                    <span>Start a Project</span>
-                  </motion.button>
-                </LoadingLink>
-                <LoadingLink href='/services' className='w-full sm:w-auto'>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className='border-2 border-indigo-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-base sm:text-lg hover:bg-indigo-500/10 transition-all duration-300 flex items-center justify-center space-x-2 w-full'
-                  >
-                    <Briefcase className='w-5 h-5' />
-                    <span>View Services</span>
-                  </motion.button>
-                </LoadingLink>
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+            {values.map((v) => (
+              <div key={v.title} className='bg-white border border-gray-100 rounded-2xl p-8 text-center hover:shadow-md transition-all duration-200'>
+                <div className='w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mx-auto mb-5'>
+                  <div className='w-3 h-3 bg-blue-900 rounded-full' />
+                </div>
+                <h3 className='text-xl font-semibold text-gray-900 mb-3'>{v.title}</h3>
+                <p className='text-gray-500 leading-relaxed'>{v.description}</p>
               </div>
-
-              {/* Contact Info */}
-              <div className='grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 pt-8 border-t border-gray-700/50'>
-                <div className='flex items-center justify-center space-x-3 text-sm sm:text-base'>
-                  <Phone className='w-4 h-4 sm:w-5 sm:h-5 text-indigo-400 flex-shrink-0' />
-                  <span className='text-gray-400'>+91 7904329569</span>
-                </div>
-                <div className='flex items-center justify-center space-x-3 text-sm sm:text-base'>
-                  <Mail className='w-4 h-4 sm:w-5 sm:h-5 text-indigo-400 flex-shrink-0' />
-                  <span className='text-gray-400'>
-                    fudedevelopments@gmail.com
-                  </span>
-                </div>
-                <div className='flex items-center justify-center space-x-3 text-sm sm:text-base'>
-                  <MapPin className='w-4 h-4 sm:w-5 sm:h-5 text-indigo-400 flex-shrink-0' />
-                  <span className='text-gray-400'>Erode, India</span>
-                </div>
-              </div>
-            </motion.div>
+            ))}
           </div>
-        </section>
-      </div>
-    </>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className='py-20 px-4 sm:px-6 lg:px-8'>
+        <div className='max-w-6xl mx-auto'>
+          <div className='text-center mb-14'>
+            <h2 className='text-3xl sm:text-4xl font-bold text-gray-900 mb-4 tracking-tight'>
+              Why Choose <span className='text-blue-900'>Us?</span>
+            </h2>
+            <p className='max-w-2xl mx-auto text-gray-500 text-lg'>
+              We combine innovation, expertise, and dedication to deliver exceptional results.
+            </p>
+          </div>
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6'>
+            {whyChooseUs.map((point) => (
+              <div key={point.title} className='bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-md transition-all duration-200'>
+                <div className='w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-4'>
+                  <div className='w-2.5 h-2.5 bg-blue-900 rounded-full' />
+                </div>
+                <h3 className='text-lg font-semibold text-gray-900 mb-2'>{point.title}</h3>
+                <p className='text-gray-500 text-sm leading-relaxed'>{point.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Culture */}
+      <section className='py-20 px-4 sm:px-6 lg:px-8 bg-gray-50/70'>
+        <div className='max-w-6xl mx-auto'>
+          <div className='text-center mb-14'>
+            <h2 className='text-3xl sm:text-4xl font-bold text-gray-900 mb-4 tracking-tight'>
+              Our <span className='text-blue-900'>Culture</span>
+            </h2>
+            <p className='max-w-2xl mx-auto text-gray-500 text-lg'>
+              We believe in creating an environment that fosters innovation, creativity, and growth.
+            </p>
+          </div>
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+            {culture.map((item) => (
+              <div key={item.title} className='bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-md transition-all duration-200'>
+                <h3 className='text-lg font-semibold text-gray-900 mb-2'>{item.title}</h3>
+                <p className='text-gray-500 leading-relaxed'>{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className='py-20 px-4 sm:px-6 lg:px-8'>
+        <div className='max-w-4xl mx-auto'>
+          <div className='bg-blue-900 rounded-3xl p-10 sm:p-14 text-center'>
+            <h2 className='text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight'>
+              Ready to Transform Your Business?
+            </h2>
+            <p className='max-w-2xl mx-auto text-blue-200 text-lg mb-8'>
+              Let&apos;s discuss your project and explore how we can help you achieve
+              your goals with cutting-edge technology.
+            </p>
+            <div className='flex flex-col sm:flex-row gap-4 justify-center mb-10'>
+              <Link
+                href='/contactus'
+                className='inline-flex items-center justify-center px-8 py-3.5 bg-white text-blue-900 font-semibold rounded-lg hover:bg-blue-50 transition-colors'
+              >
+                Start a Project
+              </Link>
+              <Link
+                href='/services'
+                className='inline-flex items-center justify-center px-8 py-3.5 border border-blue-400 text-white font-medium rounded-lg hover:bg-blue-800 transition-colors'
+              >
+                View Services
+              </Link>
+            </div>
+            <div className='grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 border-t border-blue-800'>
+              <p className='text-sm text-blue-200'>+91 7904329569</p>
+              <p className='text-sm text-blue-200'>fudedevelopments@gmail.com</p>
+              <p className='text-sm text-blue-200'>Erode, India</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   )
 }

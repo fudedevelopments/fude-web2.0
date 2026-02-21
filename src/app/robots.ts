@@ -1,7 +1,6 @@
 import { MetadataRoute } from 'next'
 
-// Cache robots.txt for 24 hours
-export const revalidate = 86400
+export const dynamic = 'force-static'
 
 export default function robots(): MetadataRoute.Robots {
   const baseUrl =

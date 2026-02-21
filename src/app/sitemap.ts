@@ -1,7 +1,6 @@
 import { MetadataRoute } from 'next'
 
-// Revalidate sitemap every 24 hours
-export const revalidate = 86400
+export const dynamic = 'force-static'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.fude.in/'
