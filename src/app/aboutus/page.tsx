@@ -6,7 +6,7 @@ const teamMembers = [
   { name: 'Dhanush S', role: 'Backend Developer', bio: 'Proficient in building scalable APIs, database management, and server-side logic.', image: '/images/team/Dhanush.3.jpg' },
   { name: 'Boopathi R', role: 'Dot net', bio: 'Specialized in building enterprise-level applications using .NET technologies.', image: '/images/team/Boopathi.5 (1).webp' },
   { name: 'Dinesh Kumar Vs', role: 'Full Stack Developer', bio: 'Experienced in HTML, CSS, JavaScript, and Java. Builds responsive web apps.', image: '/images/team/Dinesh.2.webp' },
-  { name: 'Mathan M', role: 'Next.js Developer', bio: 'Specialized in modern web apps with React, TypeScript, and server-side rendering.', image: '/images/team/Madhan.1.jpg`' },
+  { name: 'Mathan M', role: 'Next.js Developer', bio: 'Specialized in modern web apps with React, TypeScript, and server-side rendering.', image: '/images/team/Madhan.1.jpg' },
   { name: 'Raja Sibi R', role: 'React Native Developer', bio: 'Expert in cross-platform mobile application development.', image: '/images/team/Sibi.4.webp' },
 ]
 
