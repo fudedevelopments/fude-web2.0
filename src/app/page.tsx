@@ -122,7 +122,7 @@ export default function Home() {
                 </span>
                 <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight leading-tight'>
                   AI-Powered{' '}
-                  <span className='gradient-text'>Smart School</span>{' '}
+                  <span className='text-white'>Smart School</span>{' '}
                   Management
                 </h2>
                 <p className='text-lg text-blue-100/90 mb-6 leading-relaxed'>
