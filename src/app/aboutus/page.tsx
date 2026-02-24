@@ -1,12 +1,13 @@
-﻿import Link from 'next/link'
+﻿import Image from 'next/image'
+import Link from 'next/link'
 
 const teamMembers = [
-  { name: 'Praveen M', role: 'Frontend Developer', bio: 'Expert in React, Next.js, and Flutter with a passion for beautiful user interfaces.' },
-  { name: 'Dhanush S', role: 'Backend Developer', bio: 'Proficient in building scalable APIs, database management, and server-side logic.' },
-  { name: 'Kishore R', role: 'Digital Marketing', bio: 'Specialist in SEO, content marketing, and social media strategy.' },
-  { name: 'Dinesh Kumar Vs', role: 'Full Stack Developer', bio: 'Experienced in HTML, CSS, JavaScript, and Java. Builds responsive web apps.' },
-  { name: 'Mathan M', role: 'Next.js Developer', bio: 'Specialized in modern web apps with React, TypeScript, and server-side rendering.' },
-  { name: 'Raja Sibi R', role: 'React Native Developer', bio: 'Expert in cross-platform mobile application development.' },
+  { name: 'Praveen M', role: 'Frontend Developer', bio: 'Expert in React, Next.js, and Flutter with a passion for beautiful user interfaces.', image: '/images/team/Praveen.6.webp' },
+  { name: 'Dhanush S', role: 'Backend Developer', bio: 'Proficient in building scalable APIs, database management, and server-side logic.', image: '/images/team/Dhanush.3.jpg' },
+  { name: 'Boopathi R', role: 'Dot net', bio: 'Specialized in building enterprise-level applications using .NET technologies.', image: '/images/team/Boopathi.5 (1).webp' },
+  { name: 'Dinesh Kumar Vs', role: 'Full Stack Developer', bio: 'Experienced in HTML, CSS, JavaScript, and Java. Builds responsive web apps.', image: '/images/team/Dinesh.2.webp' },
+  { name: 'Mathan M', role: 'Next.js Developer', bio: 'Specialized in modern web apps with React, TypeScript, and server-side rendering.', image: '/images/team/Madhan.1.jpg`' },
+  { name: 'Raja Sibi R', role: 'React Native Developer', bio: 'Expert in cross-platform mobile application development.', image: '/images/team/Sibi.4.webp' },
 ]
 
 const values = [
@@ -64,17 +65,30 @@ export default function AboutUs() {
               Our diverse team brings years of experience in software development.
             </p>
           </div>
-          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
             {teamMembers.map((member) => (
-              <div key={member.name} className='bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-md transition-all duration-200'>
-                <div className='w-14 h-14 bg-blue-50 rounded-full flex items-center justify-center mb-4 border border-blue-100'>
-                  <span className='text-lg font-bold text-blue-900'>
-                    {member.name.split(' ').map((n) => n[0]).join('')}
-                  </span>
+              <div key={member.name} className='group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300'>
+                {/* Image area */}
+                <div className='relative h-90 w-full overflow-hidden'>
+                  <Image
+                    src={member.image}
+                    alt={`${member.name} - ${member.role}`}
+                    fill
+                    className='object-cover object-[center_15%] group-hover:scale-105 transition-transform duration-500'
+                    unoptimized
+                  />
+                  {/* Role badge */}
+                  <div className='absolute top-3 left-3'>
+                    <span className='px-3 py-1 bg-blue-900/85 backdrop-blur-sm text-white text-xs font-medium rounded-full'>
+                      {member.role}
+                    </span>
+                  </div>
                 </div>
-                <h3 className='text-lg font-semibold text-gray-900'>{member.name}</h3>
-                <p className='text-sm text-blue-800 font-medium mb-3'>{member.role}</p>
-                <p className='text-sm text-gray-500 leading-relaxed'>{member.bio}</p>
+                {/* Text area */}
+                <div className='flex flex-col flex-1 p-5 border-t border-gray-100'>
+                  <h3 className='text-base font-bold text-gray-900 mb-2'>{member.name}</h3>
+                  <p className='text-sm text-gray-500 leading-relaxed'>{member.bio}</p>
+                </div>
               </div>
             ))}
           </div>
