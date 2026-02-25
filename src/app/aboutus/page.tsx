@@ -14,7 +14,7 @@ const values = [
   { title: 'Innovation', description: 'Pushing boundaries with cutting-edge technology.', image: '/images/ourValues/inovationimage.jpg' },
   { title: 'Quality', description: 'Excellence in every project with attention to detail.', image: '/images/ourValues/quality.png' },
   { title: 'Collaboration', description: 'Working together for extraordinary results.', image: '/images/ourValues/colaburation.avif' },
-  { title: 'Impact', description: 'Creating solutions that make a real difference.', image: '/images/ourValues/makeDifferent.webp' },
+  { title: 'Impact', description: 'Creating solutions that make a real difference.', image: '/images/ourValues/makeDifferent.jpg' },
 ]
 
 export default function AboutUs() {

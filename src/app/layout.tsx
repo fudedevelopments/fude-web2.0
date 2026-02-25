@@ -11,8 +11,7 @@ const poppins = Poppins({
   variable: '--font-poppins',
 })
 
-const baseUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || 'https://fudedevelopments.com'
+const baseUrl = 'https://fudedevelopments.com'
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -91,8 +90,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || 'https://fudedevelopments.com'
+  const siteUrl = 'https://fudedevelopments.com'
 
   const structuredData = {
     '@context': 'https://schema.org',

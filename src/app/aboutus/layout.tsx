@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 
-const baseUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || 'https://fudedevelopments.com'
+const baseUrl = 'https://fudedevelopments.com'
 
 export const metadata: Metadata = {
   title: 'About Us - Best IT Company in Erode | Fude Development Team',
