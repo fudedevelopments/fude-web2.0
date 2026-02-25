@@ -1,5 +1,177 @@
-﻿import Image from 'next/image'
+﻿import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
+
+const PAGE_URL = 'https://www.fude.digital/aboutus/'
+
+export const metadata: Metadata = {
+  title: 'About Us | Fude Development – AI Software Company in Erode, Tamil Nadu',
+  description:
+    'Learn about Fude Development, a leading AI-powered software development company in Erode, Tamil Nadu. Meet our expert team of developers specialising in web development, mobile apps, machine learning, and intelligent automation.',
+  keywords: [
+    // Brand
+    'Fude Development',
+    'about Fude Development',
+    'Fude Development team',
+    'Fude Development Erode',
+    'Fude Development company',
+    'who is Fude Development',
+    // Company type
+    'AI software company Erode',
+    'software development company Erode',
+    'IT company Erode Tamil Nadu',
+    'web development company Erode',
+    'mobile app company Erode',
+    'best software company in Erode',
+    'best IT company in Erode',
+    // Services mentioned on page
+    'AI development company India',
+    'machine learning company Tamil Nadu',
+    'web application development Erode',
+    'mobile app development Erode',
+    'React Next.js developer Erode',
+    'Flutter developer Erode',
+    'React Native developer Erode',
+    'cloud engineer Erode',
+    'full stack developer Erode',
+    'backend developer Erode',
+    'frontend developer Erode',
+    'intelligent automation company',
+    'custom software solutions Erode',
+    // Geo — Coimbatore
+    'software company Coimbatore',
+    'IT company Coimbatore',
+    'AI development Coimbatore',
+    'web development Coimbatore',
+    'mobile app development Coimbatore',
+    // Geo — Tiruppur
+    'software company Tiruppur',
+    'IT company Tiruppur',
+    'web development Tiruppur',
+    'mobile app development Tiruppur',
+    // Geo — Tamil Nadu & India
+    'software company Tamil Nadu',
+    'IT company Tamil Nadu',
+    'AI software company Tamil Nadu',
+    'software development company India',
+    'AI company India',
+  ],
+  alternates: {
+    canonical: PAGE_URL,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-snippet': -1,
+      'max-image-preview': 'large',
+      'max-video-preview': -1,
+    },
+  },
+  openGraph: {
+    title: 'About Us | Fude Development – AI Software Company in Erode, Tamil Nadu',
+    description:
+      'Meet the team behind Fude Development — an AI-powered software company in Erode, Tamil Nadu, building web apps, mobile apps, machine learning solutions, and intelligent automation.',
+    url: PAGE_URL,
+    siteName: 'Fude Development',
+    type: 'website',
+    locale: 'en_IN',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About Fude Development | AI Software Company in Erode',
+    description:
+      'Passionate developers building AI-powered web, mobile, and automation solutions. Based in Erode, Tamil Nadu, serving clients across India.',
+    site: '@fudedevelopment',
+    creator: '@fudedevelopment',
+  },
+}
+
+// ─── Structured Data ─────────────────────────────────────────────────────────
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Fude Development',
+  url: 'https://www.fude.digital',
+  logo: 'https://www.fude.digital/images/logo/fude-logo.png',
+  description:
+    'Fude Development is a cutting-edge AI-powered software development company in Erode, Tamil Nadu, specialising in web development, mobile applications, machine learning, and intelligent automation.',
+  foundingDate: '2020',
+  email: 'contact@fudedevelopments.com',
+  telephone: '+91-7904329569',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Slatter Nagar, Perunduari',
+    addressLocality: 'Erode',
+    addressRegion: 'Tamil Nadu',
+    postalCode: '638053',
+    addressCountry: 'IN',
+  },
+  areaServed: ['Erode', 'Coimbatore', 'Tiruppur', 'Tamil Nadu', 'India'],
+  sameAs: [
+    'https://linkedin.com/company/fudedevelopments',
+    'https://github.com/fudedevelopments',
+  ],
+  knowsAbout: [
+    'AI Development',
+    'Web Development',
+    'Mobile App Development',
+    'Machine Learning',
+    'Intelligent Automation',
+    'React',
+    'Next.js',
+    'Flutter',
+    'React Native',
+    'Cloud Engineering',
+    'Full Stack Development',
+  ],
+  employee: [
+    { '@type': 'Person', name: 'Praveen M', jobTitle: 'Frontend Developer' },
+    { '@type': 'Person', name: 'Dhanush S', jobTitle: 'Backend Developer' },
+    { '@type': 'Person', name: 'Boopathi R', jobTitle: 'Full Stack Developer' },
+    { '@type': 'Person', name: 'Dinesh Kumar Vs', jobTitle: 'Cloud Engineer' },
+    { '@type': 'Person', name: 'Mathan M', jobTitle: 'Next.js Developer' },
+    { '@type': 'Person', name: 'Raja Sibi R', jobTitle: 'React Native Developer' },
+  ],
+}
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://www.fude.digital/',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'About Us',
+      item: PAGE_URL,
+    },
+  ],
+}
+
+const aboutPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: 'About Fude Development',
+  url: PAGE_URL,
+  description:
+    'Learn about Fude Development — our story, our AI-powered services, our expert team, and the values that drive everything we build.',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Fude Development',
+    url: 'https://www.fude.digital',
+  },
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 
 const teamMembers = [
   { name: 'Praveen M', role: 'Frontend Developer', bio: 'Expert in React, Next.js, and Flutter with a passion for beautiful user interfaces.', image: '/images/team/Praveen.6.webp' },
@@ -19,6 +191,19 @@ const values = [
 
 export default function AboutUs() {
   return (
+    <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema) }}
+      />
     <div>
       {/* Hero */}
       <section className='pt-32 pb-16 px-4 sm:px-6 lg:px-8'>
@@ -157,5 +342,6 @@ export default function AboutUs() {
         </div>
       </section>
     </div>
+    </>
   )
 }
