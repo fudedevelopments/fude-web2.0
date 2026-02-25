@@ -21,6 +21,27 @@ export const metadata: Metadata = {
     'education technology',
     'school automation',
     'AI learning platform',
+    // Erode
+    'school management system in Erode',
+    'school ERP software in Erode',
+    'smart school software Erode',
+    'school bus tracking Erode',
+    // Coimbatore
+    'school management system in Coimbatore',
+    'school ERP software in Coimbatore',
+    'smart school software Coimbatore',
+    'school bus tracking Coimbatore',
+    'education technology Coimbatore',
+    // Tiruppur
+    'school management system in Tiruppur',
+    'school ERP software in Tiruppur',
+    'smart school software Tiruppur',
+    'school bus tracking Tiruppur',
+    'education technology Tiruppur',
+    // Tamil Nadu
+    'school ERP Tamil Nadu',
+    'school management software Tamil Nadu',
+    'AI school platform Tamil Nadu',
   ],
   openGraph: {
     title: 'AI-Powered Smart School Management System | Fude Development',

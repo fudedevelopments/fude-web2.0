@@ -11,7 +11,7 @@ const poppins = Poppins({
   variable: '--font-poppins',
 })
 
-const baseUrl = 'https://fudedevelopments.com'
+const baseUrl = 'https://fude.in'
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -23,16 +23,41 @@ export const metadata: Metadata = {
     'Leading software development company in Erode, Tamil Nadu. Fude Development specializes in custom web applications, Android mobile apps, AI solutions, and business automation.',
   keywords: [
     'Fude Development',
+    // Erode
     'Android app development in Erode',
     'Web development company in Erode',
     'Software company in Erode',
     'IT company in Erode',
     'Best app developers in Erode',
     'Mobile app development in Erode',
+    'Website designers in Erode',
+    'Custom software solutions in Erode',
+    // Coimbatore
+    'Android app development in Coimbatore',
+    'Web development company in Coimbatore',
+    'Software company in Coimbatore',
+    'IT company in Coimbatore',
+    'Best app developers in Coimbatore',
+    'Mobile app development in Coimbatore',
+    'Website designers in Coimbatore',
+    'Custom software solutions in Coimbatore',
+    // Tiruppur
+    'Android app development in Tiruppur',
+    'Web development company in Tiruppur',
+    'Software company in Tiruppur',
+    'IT company in Tiruppur',
+    'Best app developers in Tiruppur',
+    'Mobile app development in Tiruppur',
+    'Website designers in Tiruppur',
+    'Custom software solutions in Tiruppur',
+    // Generic / India
     'Android app development company',
     'Website development company',
     'Full-stack development company',
     'Software development services India',
+    'Android app developers in Tamil Nadu',
+    'Web development company in Tamil Nadu',
+    'Best IT company in Tamil Nadu',
     'AI development',
     'React development',
     'Next.js development',

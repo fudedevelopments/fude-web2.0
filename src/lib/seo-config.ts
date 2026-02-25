@@ -17,7 +17,7 @@ export const seoConfig = {
       'Fude Development software company',
       'Fude Development IT company',
 
-      // Location-Based Keywords (Erode Local SEO)
+      // Location-Based Keywords (Erode)
       'Android app development in Erode',
       'Web development company in Erode',
       'Software company in Erode',
@@ -26,6 +26,32 @@ export const seoConfig = {
       'Website designers in Erode',
       'Mobile app development in Erode',
       'Custom software solutions in Erode',
+      'Affordable app development in Erode',
+      'E-commerce website development Erode',
+
+      // Location-Based Keywords (Coimbatore)
+      'Android app development in Coimbatore',
+      'Web development company in Coimbatore',
+      'Software company in Coimbatore',
+      'IT company in Coimbatore',
+      'Best app developers in Coimbatore',
+      'Website designers in Coimbatore',
+      'Mobile app development in Coimbatore',
+      'Custom software solutions in Coimbatore',
+      'Affordable app development in Coimbatore',
+      'E-commerce website development Coimbatore',
+
+      // Location-Based Keywords (Tiruppur)
+      'Android app development in Tiruppur',
+      'Web development company in Tiruppur',
+      'Software company in Tiruppur',
+      'IT company in Tiruppur',
+      'Best app developers in Tiruppur',
+      'Website designers in Tiruppur',
+      'Mobile app development in Tiruppur',
+      'Custom software solutions in Tiruppur',
+      'Affordable app development in Tiruppur',
+      'E-commerce website development Tiruppur',
 
       // Service-Based Keywords
       'Android app development company',

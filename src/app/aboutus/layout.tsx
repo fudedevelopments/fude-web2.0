@@ -8,15 +8,29 @@ export const metadata: Metadata = {
     'Learn about Fude Development, the leading software company in Erode, Tamil Nadu. Meet our expert team of Android app developers, web developers, and AI specialists driving digital transformation across India.',
   keywords: [
     'about Fude Development',
+    // Erode
     'IT company in Erode',
     'software company in Erode',
     'Best app developers in Erode',
-    'Android app developers in Tamil Nadu',
     'web development team Erode',
+    'technology innovators Erode',
+    // Coimbatore
+    'IT company in Coimbatore',
+    'software company in Coimbatore',
+    'Best app developers in Coimbatore',
+    'web development team Coimbatore',
+    'technology company Coimbatore',
+    // Tiruppur
+    'IT company in Tiruppur',
+    'software company in Tiruppur',
+    'Best app developers in Tiruppur',
+    'web development team Tiruppur',
+    'technology company Tiruppur',
+    // General
+    'Android app developers in Tamil Nadu',
     'software development company Tamil Nadu',
     'tech company mission',
     'development experts India',
-    'technology innovators Erode',
     'digital transformation team',
     'custom software company India',
     'mobile app development team',
