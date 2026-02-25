@@ -29,8 +29,8 @@ export default function ServicesPage() {
       {/* Hero */}
       <section className='pt-32 pb-16 px-4 sm:px-6 lg:px-8'>
         <div className='max-w-4xl mx-auto text-center'>
-          <h1 className='text-4xl sm:text-5xl font-bold text-gray-900 mb-6 tracking-tight'>
-            Our <span className='text-blue-900'>Services</span>
+          <h1 className='text-4xl sm:text-5xl font-bold mb-6 tracking-tight' style={{ background: 'linear-gradient(135deg, #0a1628 0%, #2563eb 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+            Our Services
           </h1>
           <p className='text-lg text-gray-500 max-w-3xl mx-auto leading-relaxed'>
             Comprehensive solutions tailored to accelerate your business growth with cutting-edge technology.
@@ -59,8 +59,8 @@ export default function ServicesPage() {
       <section className='py-16 px-4 sm:px-6 lg:px-8'>
         <div className='max-w-4xl mx-auto'>
           <div className='text-center mb-12'>
-            <h2 className='text-3xl sm:text-4xl font-bold text-gray-900 mb-4 tracking-tight'>
-              Our <span className='text-blue-900'>Process</span>
+            <h2 className='text-3xl sm:text-4xl font-bold mb-4 tracking-tight' style={{ background: 'linear-gradient(135deg, #0a1628 0%, #2563eb 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              Our Process
             </h2>
             <p className='text-gray-500 text-lg'>How we bring your ideas to life</p>
           </div>
@@ -82,8 +82,8 @@ export default function ServicesPage() {
       <section className='py-16 px-4 sm:px-6 lg:px-8 bg-gray-50/70'>
         <div className='max-w-4xl mx-auto'>
           <div className='text-center mb-12'>
-            <h2 className='text-3xl sm:text-4xl font-bold text-gray-900 mb-4 tracking-tight'>
-              Technology <span className='text-blue-900'>Stack</span>
+            <h2 className='text-3xl sm:text-4xl font-bold mb-4 tracking-tight' style={{ background: 'linear-gradient(135deg, #0a1628 0%, #2563eb 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              Technology Stack
             </h2>
             <p className='text-gray-500 text-lg'>Tools and frameworks we work with</p>
           </div>
@@ -101,7 +101,7 @@ export default function ServicesPage() {
       <section className='py-16 px-4 sm:px-6 lg:px-8'>
         <div className='max-w-4xl mx-auto'>
           <div className='bg-blue-900 rounded-3xl p-10 sm:p-14 text-center'>
-            <h2 className='text-3xl font-bold text-white mb-4 tracking-tight'>
+            <h2 className='text-3xl font-bold mb-4 tracking-tight' style={{ background: 'linear-gradient(135deg, #ffffff 0%, #bbf7d0 50%, #4ade80 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
               Ready to Start Your Project?
             </h2>
             <p className='text-blue-200 text-lg mb-8 max-w-2xl mx-auto'>

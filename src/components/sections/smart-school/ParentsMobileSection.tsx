@@ -1,14 +1,40 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
+import Image from 'next/image'
+import { motion } from 'framer-motion'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 
 type Tab = 'bus' | 'chat' | 'notifications'
 
-const tabs: { id: Tab; label: string; icon: string }[] = [
-  { id: 'bus', label: 'Bus Tracking', icon: '📍' },
-  { id: 'chat', label: 'AI Tutor', icon: '🤖' },
-  { id: 'notifications', label: 'Alerts', icon: '🔔' },
+const tabs: { id: Tab; label: string; icon: React.ReactNode }[] = [
+  {
+    id: 'bus',
+    label: 'Bus Tracking',
+    icon: (
+      <svg className='w-3.5 h-3.5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M8 16H6m12 0h-2M3 7h18M3 11h18M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' />
+      </svg>
+    ),
+  },
+  {
+    id: 'chat',
+    label: 'AI Tutor',
+    icon: (
+      <svg className='w-3.5 h-3.5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z' />
+      </svg>
+    ),
+  },
+  {
+    id: 'notifications',
+    label: 'Alerts',
+    icon: (
+      <svg className='w-3.5 h-3.5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9' />
+      </svg>
+    ),
+  },
 ]
 
 const chatMessages = [
@@ -67,85 +93,110 @@ const notifications = [
 
 function BusTrackingScreen() {
   return (
-    <div className='flex flex-col h-full'>
-      {/* Map area */}
-      <div className='relative flex-1 bg-gradient-to-br from-slate-100 to-blue-50 rounded-xl overflow-hidden mx-1 mb-3' style={{ minHeight: 200 }}>
-        {/* Road grid lines */}
-        <svg className='absolute inset-0 w-full h-full' viewBox='0 0 300 180' preserveAspectRatio='none'>
-          {/* Background streets */}
-          <line x1='0' y1='110' x2='300' y2='110' stroke='#cbd5e1' strokeWidth='10' strokeLinecap='round' />
-          <line x1='100' y1='0' x2='100' y2='180' stroke='#cbd5e1' strokeWidth='10' strokeLinecap='round' />
-          <line x1='200' y1='0' x2='200' y2='180' stroke='#cbd5e1' strokeWidth='10' strokeLinecap='round' />
-          <line x1='0' y1='60' x2='300' y2='60' stroke='#e2e8f0' strokeWidth='8' strokeLinecap='round' />
-          {/* Route path */}
+    <div className='flex flex-col h-full gap-2'>
+      {/* Header */}
+      <div className='flex items-center gap-2 px-1'>
+        <div className='w-7 h-7 bg-blue-600 rounded-lg flex items-center justify-center shadow'>
+          <Image src='/images/icons/bus.png' alt='Bus' width={18} height={18} unoptimized />
+        </div>
+        <p className='text-[11px] font-bold text-gray-800'>Bus Tracking</p>
+        <span className='ml-auto flex items-center gap-1 bg-green-100 text-green-700 text-[8px] font-bold px-1.5 py-0.5 rounded-full'>
+          <span className='w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse' />
+          LIVE
+        </span>
+      </div>
+
+      {/* Map */}
+      <div className='relative rounded-xl overflow-hidden mx-1' style={{ height: 140, background: 'linear-gradient(135deg, #e8f4f0 0%, #dbeafe 100%)' }}>
+        <svg className='absolute inset-0 w-full h-full' viewBox='0 0 300 140' preserveAspectRatio='none'>
+          {/* Building blocks */}
+          <rect x='30' y='5' width='55' height='45' rx='3' fill='#c7d2dc' opacity='0.5' />
+          <rect x='120' y='5' width='50' height='40' rx='3' fill='#c7d2dc' opacity='0.5' />
+          <rect x='220' y='5' width='55' height='45' rx='3' fill='#c7d2dc' opacity='0.5' />
+          <rect x='30' y='70' width='55' height='55' rx='3' fill='#c7d2dc' opacity='0.5' />
+          <rect x='170' y='75' width='50' height='50' rx='3' fill='#c7d2dc' opacity='0.5' />
+          {/* Roads */}
+          <line x1='0' y1='100' x2='300' y2='100' stroke='#fff' strokeWidth='9' />
+          <line x1='0' y1='100' x2='300' y2='100' stroke='#94a3b8' strokeWidth='7' />
+          <line x1='100' y1='0' x2='100' y2='140' stroke='#fff' strokeWidth='8' />
+          <line x1='100' y1='0' x2='100' y2='140' stroke='#94a3b8' strokeWidth='6' />
+          <line x1='200' y1='0' x2='200' y2='140' stroke='#fff' strokeWidth='8' />
+          <line x1='200' y1='0' x2='200' y2='140' stroke='#94a3b8' strokeWidth='6' />
+          <line x1='0' y1='55' x2='300' y2='55' stroke='#e2e8f0' strokeWidth='6' />
+          {/* Center dashes */}
+          <line x1='0' y1='100' x2='300' y2='100' stroke='#fbbf24' strokeWidth='1.5' strokeDasharray='10 8' opacity='0.6' />
+          {/* Route highlight */}
           <polyline
-            points='12,112 60,112 105,80 155,80 200,108 240,108'
-            fill='none'
-            stroke='#3b82f6'
-            strokeWidth='3'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            strokeDasharray='6 4'
+            points='9,103 57,103 100,59 150,59 200,101 240,101'
+            fill='none' stroke='#2563eb' strokeWidth='2.5'
+            strokeLinecap='round' strokeLinejoin='round'
+            strokeDasharray='5 4' opacity='0.9'
           />
           {/* School pin */}
-          <circle cx='240' cy='108' r='7' fill='#1e40af' />
-          <text x='240' y='128' textAnchor='middle' fontSize='9' fill='#1e40af' fontWeight='bold'>School</text>
+          <circle cx='240' cy='101' r='6' fill='#1e40af' stroke='white' strokeWidth='1.5' />
+          <text x='240' y='120' textAnchor='middle' fontSize='8' fill='#1e40af' fontWeight='bold'>School</text>
           {/* Home pin */}
-          <circle cx='12' cy='112' r='7' fill='#16a34a' />
-          <text x='12' y='132' textAnchor='middle' fontSize='9' fill='#16a34a' fontWeight='bold'>Home</text>
+          <circle cx='9' cy='103' r='6' fill='#16a34a' stroke='white' strokeWidth='1.5' />
+          <text x='9' y='122' textAnchor='middle' fontSize='8' fill='#16a34a' fontWeight='bold'>Home</text>
         </svg>
 
-        {/* Animated Bus */}
-        <div className='animate-bus-move' style={{ position: 'absolute', zIndex: 10 }}>
+        {/* Framer Motion Animated Bus */}
+        <motion.div
+          style={{ position: 'absolute', zIndex: 10, translateX: '-50%', translateY: '-50%' }}
+          animate={{
+            left: ['3%', '19%', '33%', '50%', '65%', '79%', '65%', '50%', '33%', '19%', '3%'],
+            top:  ['72%', '72%', '42%', '42%', '72%', '72%', '72%', '42%', '42%', '72%', '72%'],
+          }}
+          transition={{
+            duration: 10,
+            ease: 'easeInOut',
+            repeat: Infinity,
+            times: [0, 0.15, 0.28, 0.42, 0.58, 0.72, 0.75, 0.82, 0.88, 0.94, 1],
+          }}
+        >
           <div className='relative'>
-            {/* Ping ring */}
-            <span className='absolute -inset-2 rounded-full bg-blue-400/40 animate-location-ping' />
-            {/* Bus icon */}
-            <div className='w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center shadow-lg border-2 border-white'>
-              <svg className='w-4 h-4 text-white' fill='currentColor' viewBox='0 0 20 20'>
-                <path d='M3 4a2 2 0 012-2h10a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V4zm2 0v10h10V4H5zm1 3a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm0 3a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1z' />
-              </svg>
-            </div>
+            <span className='absolute -inset-2 rounded-full bg-blue-400/30 animate-location-ping' />
+            <Image src='/images/icons/bus.png' alt='Bus' width={28} height={28} unoptimized />
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Bus Info Card */}
-      <div className='bg-blue-600 rounded-xl p-3 mx-1 mb-2'>
-        <div className='flex items-center justify-between mb-2'>
+      <div className='bg-blue-600 rounded-xl p-2.5 mx-1'>
+        <div className='flex items-center justify-between mb-1.5'>
           <div>
-            <p className='text-white font-semibold text-sm'>Bus #7 — On Route</p>
-            <p className='text-blue-100 text-xs'>Driver: Ramesh Kumar</p>
+            <p className='text-white font-semibold text-[11px]'>🚌 Bus #7 — On Route</p>
+            <p className='text-blue-100 text-[9px]'>Driver: Ramesh Kumar</p>
           </div>
-          <div className='bg-green-400 text-green-900 text-xs font-bold px-2 py-1 rounded-lg'>LIVE</div>
+          <div className='bg-green-400 text-green-900 text-[8px] font-bold px-1.5 py-0.5 rounded-md'>LIVE</div>
         </div>
-        <div className='flex gap-2'>
-          <div className='flex-1 bg-blue-500/60 rounded-lg p-2 text-center'>
-            <p className='text-white text-base font-bold'>4 min</p>
-            <p className='text-blue-100 text-[10px]'>ETA</p>
+        <div className='flex gap-1.5'>
+          <div className='flex-1 bg-blue-500/60 rounded-lg p-1.5 text-center'>
+            <p className='text-white text-sm font-bold'>4 min</p>
+            <p className='text-blue-100 text-[8px]'>ETA</p>
           </div>
-          <div className='flex-1 bg-blue-500/60 rounded-lg p-2 text-center'>
-            <p className='text-white text-base font-bold'>2.1 km</p>
-            <p className='text-blue-100 text-[10px]'>Distance</p>
+          <div className='flex-1 bg-blue-500/60 rounded-lg p-1.5 text-center'>
+            <p className='text-white text-sm font-bold'>2.1 km</p>
+            <p className='text-blue-100 text-[8px]'>Distance</p>
           </div>
-          <div className='flex-1 bg-blue-500/60 rounded-lg p-2 text-center'>
-            <p className='text-white text-base font-bold'>32</p>
-            <p className='text-blue-100 text-[10px]'>Students</p>
+          <div className='flex-1 bg-blue-500/60 rounded-lg p-1.5 text-center'>
+            <p className='text-white text-sm font-bold'>32</p>
+            <p className='text-blue-100 text-[8px]'>Students</p>
           </div>
         </div>
       </div>
 
       {/* Stop list */}
-      <div className='space-y-1.5 mx-1'>
+      <div className='space-y-1 mx-1'>
         {[
           { stop: 'Perunduari Bus Stop', eta: 'Arrived', done: true },
           { stop: 'Market Road Stop', eta: '4 min', done: false, active: true },
           { stop: 'School Gate', eta: '14 min', done: false },
         ].map((s) => (
-          <div key={s.stop} className='flex items-center gap-2 bg-gray-50 rounded-lg px-2.5 py-1.5'>
-            <div className={`w-2.5 h-2.5 rounded-full flex-shrink-0 ${s.done ? 'bg-green-500' : s.active ? 'bg-blue-500 animate-pulse' : 'bg-gray-300'}`} />
-            <span className='text-xs text-gray-700 flex-1 font-medium'>{s.stop}</span>
-            <span className={`text-xs font-semibold ${s.done ? 'text-green-600' : s.active ? 'text-blue-600' : 'text-gray-400'}`}>{s.eta}</span>
+          <div key={s.stop} className='flex items-center gap-2 bg-gray-50 rounded-lg px-2 py-1.5'>
+            <div className={`w-2 h-2 rounded-full flex-shrink-0 ${s.done ? 'bg-green-500' : s.active ? 'bg-blue-500 animate-pulse' : 'bg-gray-300'}`} />
+            <span className='text-[9px] text-gray-700 flex-1 font-medium'>{s.stop}</span>
+            <span className={`text-[9px] font-semibold ${s.done ? 'text-green-600' : s.active ? 'text-blue-600' : 'text-gray-400'}`}>{s.eta}</span>
           </div>
         ))}
       </div>
@@ -324,7 +375,7 @@ function PhoneMockup({ activeTab }: { activeTab: Tab }) {
                   key={t.id}
                   className={`flex-1 flex flex-col items-center py-1 rounded-lg transition-all duration-300 ${activeTab === t.id ? 'bg-blue-600' : 'bg-white border border-gray-100'}`}
                 >
-                  <span className='text-[10px]'>{t.icon}</span>
+                  <span className={`${activeTab === t.id ? 'text-white' : 'text-gray-500'}`}>{t.icon}</span>
                   <span className={`text-[7px] font-medium mt-0.5 ${activeTab === t.id ? 'text-white' : 'text-gray-500'}`}>
                     {t.label.split(' ')[0]}
                   </span>
@@ -411,9 +462,8 @@ export default function ParentsMobileSection() {
               <span className='text-base'>📱</span>
               Parent-First Mobile Experience
             </span>
-            <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight leading-tight'>
-              Everything Parents Need,{' '}
-              <span className='gradient-text'>In Their Pocket</span>
+            <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 tracking-tight leading-tight' style={{ background: 'linear-gradient(135deg, #ffffff 0%, #bbf7d0 50%, #4ade80 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              Everything Parents Need, In Their Pocket
             </h2>
             <p className='text-lg text-blue-100/80 max-w-2xl mx-auto'>
               Our parent app delivers real-time bus tracking, AI-powered homework help, and instant school alerts — keeping every family connected and informed.
@@ -453,7 +503,7 @@ export default function ParentsMobileSection() {
               {/* Active Feature Info */}
               <div className='space-y-6'>
                 <div>
-                  <h3 className='text-2xl sm:text-3xl font-bold text-white mb-3'>{info.title}</h3>
+                  <h3 className='text-2xl sm:text-3xl font-bold mb-3' style={{ background: 'linear-gradient(135deg, #ffffff 0%, #bbf7d0 50%, #4ade80 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>{info.title}</h3>
                   <p className='text-blue-100/80 leading-relaxed text-base'>{info.description}</p>
                 </div>
 
@@ -483,7 +533,7 @@ export default function ParentsMobileSection() {
 
                 <div className='flex flex-col sm:flex-row gap-3 pt-2'>
                   <a
-                    href='#demo'
+                    href='/contactus'
                     className='inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold rounded-xl hover:from-blue-500 hover:to-blue-400 transition-all duration-300 shadow-lg shadow-blue-500/25 hover:-translate-y-0.5'
                   >
                     See Full Demo

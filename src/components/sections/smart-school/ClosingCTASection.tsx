@@ -22,9 +22,8 @@ export default function ClosingCTASection() {
         </ScrollReveal>
 
         <ScrollReveal delay={100}>
-          <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight leading-tight'>
-            Full Clarity. Stronger Trust.{' '}
-            <span className='gradient-text'>Smarter Decisions.</span>
+          <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 tracking-tight leading-tight' style={{ background: 'linear-gradient(135deg, #ffffff 0%, #bbf7d0 50%, #4ade80 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+            Full Clarity. Stronger Trust. Smarter Decisions.
           </h2>
         </ScrollReveal>
 
@@ -38,7 +37,7 @@ export default function ClosingCTASection() {
         <ScrollReveal delay={300}>
           <div className='flex flex-col sm:flex-row gap-4 justify-center'>
             <a
-              href='#contact'
+              href='/contactus'
               className='inline-flex items-center justify-center px-10 py-4 bg-gradient-to-r from-amber-500 to-amber-400 text-gray-900 font-bold text-lg rounded-xl hover:from-amber-400 hover:to-amber-300 transition-all duration-300 shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 hover:-translate-y-0.5'
             >
               Book Free Demo

@@ -66,10 +66,9 @@ export default function Home() {
             </p>
           </div>
           <div className='animate-fade-in-up delay-100'>
-            <h1 className='text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight'>
-              Welcome to{' '}
-              <span className='text-blue-900'>Fude</span>{' '}
-              <span className='text-gray-900'>Developments</span>
+            <h1 className='text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight'>
+              <span style={{ color: '#0a1628' }}>Welcome to</span>{' '}
+              <span style={{ background: 'linear-gradient(135deg, #2563eb 0%, #38bdf8 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Fude Developments</span>
             </h1>
           </div>
           <div className='animate-fade-in-up delay-200'>
@@ -120,10 +119,8 @@ export default function Home() {
                   <span className='w-2 h-2 bg-amber-400 rounded-full animate-pulse' />
                   New Product Launch
                 </span>
-                <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight leading-tight'>
-                  AI-Powered{' '}
-                  <span className='text-white'>Smart School</span>{' '}
-                  Management
+                <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 tracking-tight leading-tight' style={{ background: 'linear-gradient(135deg, #ffffff 0%, #bbf7d0 50%, #4ade80 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                  AI-Powered Smart School Management
                 </h2>
                 <p className='text-lg text-blue-100/90 mb-6 leading-relaxed'>
                   Revolutionize your school with intelligent automation, real-time bus tracking,
@@ -209,8 +206,8 @@ export default function Home() {
         <div className='max-w-6xl mx-auto'>
           <ScrollReveal>
             <div className='text-center mb-14'>
-              <h2 className='text-3xl sm:text-4xl font-bold text-gray-900 mb-4 tracking-tight'>
-                About <span className='text-blue-900'>Fude Developments</span>
+              <h2 className='text-3xl sm:text-4xl font-bold mb-4 tracking-tight' style={{ background: 'linear-gradient(135deg, #0a1628 0%, #2563eb 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                About Fude Developments
               </h2>
               <p className='max-w-3xl mx-auto text-gray-500 text-lg leading-relaxed'>
                 Founded with a vision to revolutionize the digital landscape, Fude Developments
@@ -240,8 +237,8 @@ export default function Home() {
         <div className='max-w-6xl mx-auto'>
           <ScrollReveal>
             <div className='text-center mb-14'>
-              <h2 className='text-3xl sm:text-4xl font-bold text-gray-900 mb-4 tracking-tight'>
-                Why Choose <span className='text-blue-900'>Us?</span>
+              <h2 className='text-3xl sm:text-4xl font-bold mb-4 tracking-tight' style={{ background: 'linear-gradient(135deg, #0a1628 0%, #2563eb 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                Why Choose Us?
               </h2>
               <p className='max-w-2xl mx-auto text-gray-500 text-lg'>
                 We combine innovation, expertise, and dedication to deliver exceptional results.
@@ -269,8 +266,8 @@ export default function Home() {
         <div className='max-w-6xl mx-auto'>
           <ScrollReveal>
             <div className='text-center mb-14'>
-              <h2 className='text-3xl sm:text-4xl font-bold text-gray-900 mb-4 tracking-tight'>
-                Our <span className='text-blue-900'>Culture</span>
+              <h2 className='text-3xl sm:text-4xl font-bold mb-4 tracking-tight' style={{ background: 'linear-gradient(135deg, #0a1628 0%, #2563eb 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                Our Culture
               </h2>
               <p className='max-w-2xl mx-auto text-gray-500 text-lg'>
                 We believe in creating an environment that fosters innovation, creativity, and growth.
@@ -295,7 +292,7 @@ export default function Home() {
         <div className='max-w-4xl mx-auto'>
           <ScrollReveal direction='scale'>
             <div className='bg-blue-900 rounded-3xl p-10 sm:p-14 text-center'>
-              <h2 className='text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight'>
+              <h2 className='text-3xl sm:text-4xl font-bold mb-4 tracking-tight' style={{ background: 'linear-gradient(135deg, #ffffff 0%, #bbf7d0 50%, #4ade80 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                 Ready to Transform Your Business?
               </h2>
               <p className='max-w-2xl mx-auto text-blue-200 text-lg mb-8'>

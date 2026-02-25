@@ -11,10 +11,10 @@ const teamMembers = [
 ]
 
 const values = [
-  { title: 'Innovation', description: 'Pushing boundaries with cutting-edge technology.' },
-  { title: 'Quality', description: 'Excellence in every project with attention to detail.' },
-  { title: 'Collaboration', description: 'Working together for extraordinary results.' },
-  { title: 'Impact', description: 'Creating solutions that make a real difference.' },
+  { title: 'Innovation', description: 'Pushing boundaries with cutting-edge technology.', image: '/images/ourValues/inovationimage.jpg' },
+  { title: 'Quality', description: 'Excellence in every project with attention to detail.', image: '/images/ourValues/quality.png' },
+  { title: 'Collaboration', description: 'Working together for extraordinary results.', image: '/images/ourValues/colaburation.avif' },
+  { title: 'Impact', description: 'Creating solutions that make a real difference.', image: '/images/ourValues/makeDifferent.webp' },
 ]
 
 export default function AboutUs() {
@@ -23,8 +23,8 @@ export default function AboutUs() {
       {/* Hero */}
       <section className='pt-32 pb-16 px-4 sm:px-6 lg:px-8'>
         <div className='max-w-4xl mx-auto text-center'>
-          <h1 className='text-4xl sm:text-5xl font-bold text-gray-900 mb-6 tracking-tight'>
-            About <span className='text-blue-900'>Fude Development</span>
+          <h1 className='text-4xl sm:text-5xl font-bold mb-6 tracking-tight' style={{ background: 'linear-gradient(135deg, #0a1628 0%, #2563eb 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+            About Fude Development
           </h1>
           <p className='text-lg text-gray-500 max-w-3xl mx-auto leading-relaxed'>
             Pioneering the future of software development with innovative solutions
@@ -35,7 +35,7 @@ export default function AboutUs() {
       {/* Who We Are */}
       <section className='py-16 px-4 sm:px-6 lg:px-8 bg-gray-50/70'>
         <div className='max-w-4xl mx-auto'>
-          <h2 className='text-3xl sm:text-4xl font-bold text-gray-900 mb-8 text-center tracking-tight'>Who We Are</h2>
+          <h2 className='text-3xl sm:text-4xl font-bold mb-8 text-center tracking-tight' style={{ background: 'linear-gradient(135deg, #0a1628 0%, #2563eb 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Who We Are</h2>
           <div className='bg-white border border-gray-100 rounded-2xl p-8 sm:p-10 shadow-sm'>
             <p className='text-lg text-gray-600 mb-6 leading-relaxed'>
               <span className='font-semibold text-blue-900'>Fude Development</span> is a cutting-edge software development company specializing in AI solutions. We are passionate about creating innovative technologies that transform businesses and enhance user experiences.
@@ -58,8 +58,8 @@ export default function AboutUs() {
       <section className='py-16 px-4 sm:px-6 lg:px-8'>
         <div className='max-w-6xl mx-auto'>
           <div className='text-center mb-12'>
-            <h2 className='text-3xl sm:text-4xl font-bold text-gray-900 mb-4 tracking-tight'>
-              Meet Our <span className='text-blue-900'>Team</span>
+            <h2 className='text-3xl sm:text-4xl font-bold mb-4 tracking-tight' style={{ background: 'linear-gradient(135deg, #0a1628 0%, #2563eb 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              Meet Our Team
             </h2>
             <p className='text-lg text-gray-500 max-w-3xl mx-auto'>
               Our diverse team brings years of experience in software development.
@@ -99,17 +99,25 @@ export default function AboutUs() {
       <section className='py-16 px-4 sm:px-6 lg:px-8 bg-gray-50/70'>
         <div className='max-w-6xl mx-auto'>
           <div className='text-center mb-12'>
-            <h2 className='text-3xl sm:text-4xl font-bold text-gray-900 mb-4 tracking-tight'>Our Values</h2>
+            <h2 className='text-3xl sm:text-4xl font-bold mb-4 tracking-tight' style={{ background: 'linear-gradient(135deg, #0a1628 0%, #2563eb 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Our Values</h2>
             <p className='text-lg text-gray-500'>The principles that drive everything we do</p>
           </div>
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6'>
             {values.map((v) => (
-              <div key={v.title} className='bg-white border border-gray-100 rounded-2xl p-6 text-center hover:shadow-md transition-all duration-200'>
-                <div className='w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mx-auto mb-4'>
-                  <div className='w-2.5 h-2.5 bg-blue-900 rounded-full' />
+              <div key={v.title} className='bg-white border border-gray-100 rounded-2xl overflow-hidden text-center hover:shadow-md transition-all duration-200'>
+                <div className='relative h-40 w-full'>
+                  <Image
+                    src={v.image}
+                    alt={v.title}
+                    fill
+                    className='object-cover'
+                    unoptimized
+                  />
                 </div>
-                <h3 className='text-lg font-semibold text-gray-900 mb-2'>{v.title}</h3>
-                <p className='text-sm text-gray-500'>{v.description}</p>
+                <div className='p-6'>
+                  <h3 className='text-lg font-semibold text-gray-900 mb-2'>{v.title}</h3>
+                  <p className='text-sm text-gray-500'>{v.description}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -120,8 +128,8 @@ export default function AboutUs() {
       <section className='py-16 px-4 sm:px-6 lg:px-8'>
         <div className='max-w-4xl mx-auto'>
           <div className='text-center mb-12'>
-            <h2 className='text-3xl sm:text-4xl font-bold text-gray-900 mb-4 tracking-tight'>
-              Get In <span className='text-blue-900'>Touch</span>
+            <h2 className='text-3xl sm:text-4xl font-bold mb-4 tracking-tight' style={{ background: 'linear-gradient(135deg, #0a1628 0%, #2563eb 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              Get In Touch
             </h2>
             <p className='text-lg text-gray-500'>
               Ready to bring your ideas to life? Let&apos;s create something amazing.

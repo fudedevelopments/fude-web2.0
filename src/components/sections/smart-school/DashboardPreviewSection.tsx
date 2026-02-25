@@ -11,9 +11,8 @@ export default function DashboardPreviewSection() {
             <span className='inline-block text-sm font-semibold text-amber-700 bg-amber-50 px-4 py-1.5 rounded-full mb-4'>
               Dashboard Preview
             </span>
-            <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 tracking-tight'>
-              Powerful Insights.{' '}
-              <span className='text-blue-900'>Smarter Decisions.</span>
+            <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 tracking-tight' style={{ background: 'linear-gradient(135deg, #0a1628 0%, #2563eb 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              Powerful Insights. Smarter Decisions.
             </h2>
             <p className='text-lg text-gray-500 max-w-2xl mx-auto'>
               Comprehensive analytics and intuitive dashboards that give administrators, teachers, and parents complete visibility.

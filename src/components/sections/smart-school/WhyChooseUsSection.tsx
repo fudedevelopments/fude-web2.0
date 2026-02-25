@@ -50,8 +50,8 @@ export default function WhyChooseUsSection() {
             <span className='inline-block text-sm font-semibold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4'>
               Why Us
             </span>
-            <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 tracking-tight'>
-              Why Schools <span className='text-blue-900'>Choose Us</span>
+            <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 tracking-tight' style={{ background: 'linear-gradient(135deg, #0a1628 0%, #2563eb 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              Why Schools Choose Us
             </h2>
             <p className='text-lg text-gray-500 max-w-2xl mx-auto'>
               Trusted by institutions for our reliability, innovation, and unwavering commitment to educational excellence.

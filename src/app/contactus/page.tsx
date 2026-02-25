@@ -6,8 +6,8 @@ export default function ContactUs() {
       {/* Hero */}
       <section className='pt-32 pb-16 px-4 sm:px-6 lg:px-8'>
         <div className='max-w-4xl mx-auto text-center'>
-          <h1 className='text-4xl sm:text-5xl font-bold text-gray-900 mb-6 tracking-tight'>
-            Contact <span className='text-blue-900'>Fude Development</span>
+          <h1 className='text-4xl sm:text-5xl font-bold mb-6 tracking-tight' style={{ background: 'linear-gradient(135deg, #0a1628 0%, #2563eb 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+            Contact Fude Development
           </h1>
           <p className='text-lg text-gray-500 max-w-3xl mx-auto leading-relaxed'>
             Ready to transform your ideas into reality? Let&apos;s start a conversation about your next project.
@@ -56,7 +56,7 @@ export default function ContactUs() {
                     </div>
                     <div>
                       <p className='text-xs text-gray-400 uppercase tracking-wider'>Phone</p>
-                      <p className='text-gray-900'>+91 7904329569</p>
+                      <p className='text-gray-900'>+91 9994025037</p>
                     </div>
                   </div>
                   <div className='flex items-start gap-4'>
@@ -107,8 +107,8 @@ export default function ContactUs() {
       {/* GitHub */}
       <section className='py-16 px-4 sm:px-6 lg:px-8'>
         <div className='max-w-4xl mx-auto text-center'>
-          <h2 className='text-3xl font-bold text-gray-900 mb-4 tracking-tight'>
-            Explore Our <span className='text-blue-900'>Projects</span>
+          <h2 className='text-3xl font-bold mb-4 tracking-tight' style={{ background: 'linear-gradient(135deg, #0a1628 0%, #2563eb 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+            Explore Our Projects
           </h2>
           <p className='text-gray-500 text-lg mb-8'>Check out our latest work on GitHub</p>
           <a

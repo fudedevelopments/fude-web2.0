@@ -51,9 +51,8 @@ export default function CoreFeaturesSection() {
             <span className='inline-block text-sm font-semibold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4'>
               Core Features
             </span>
-            <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 tracking-tight'>
-              Everything Your School{' '}
-              <span className='text-blue-900'>Needs</span>
+            <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 tracking-tight' style={{ background: 'linear-gradient(135deg, #0a1628 0%, #2563eb 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              Everything Your School Needs
             </h2>
             <p className='text-lg text-gray-500 max-w-2xl mx-auto'>
               A complete AI-driven ecosystem designed to simplify school operations and enhance learning outcomes.
