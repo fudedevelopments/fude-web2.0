@@ -37,7 +37,7 @@ export default function Home() {
     {
       title: 'Fast Delivery',
       description: 'Agile development methodology ensures quick turnaround without compromising quality.',
-      image: '/images/whyChooseUs/fastdelivery.webp',
+      image: '/images/whyChooseUs/Agile.webp',
     },
     {
       title: 'Quality Assured',
