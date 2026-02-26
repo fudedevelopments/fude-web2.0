@@ -1,4 +1,5 @@
-﻿import Link from 'next/link'
+﻿import Image from 'next/image'
+import Link from 'next/link'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 
 export default function Home() {
@@ -31,18 +32,22 @@ export default function Home() {
     {
       title: 'AI-First Approach',
       description: 'We integrate artificial intelligence into every solution for smarter, more efficient results.',
+      image: '/images/whyChooseUs/ai.image.webp',
     },
     {
       title: 'Fast Delivery',
       description: 'Agile development methodology ensures quick turnaround without compromising quality.',
+      image: '/images/whyChooseUs/fastdelivery.webp',
     },
     {
       title: 'Quality Assured',
       description: 'Rigorous testing and quality control processes guarantee reliable, secure solutions.',
+      image: '/images/whyChooseUs/quality.jpg',
     },
     {
       title: 'Client Partnership',
       description: 'We work closely with clients as partners, not just service providers.',
+      image: '/images/whyChooseUs/partner..avif',
     },
   ]
 
@@ -248,12 +253,20 @@ export default function Home() {
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6'>
             {whyChooseUs.map((point, index) => (
               <ScrollReveal key={point.title} delay={index * 100}>
-                <div className='bg-white border border-gray-100 rounded-2xl p-6 hover-lift h-full'>
-                  <div className='w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-4'>
-                    <div className='w-2.5 h-2.5 bg-blue-900 rounded-full' />
+                <div className='bg-white border border-gray-100 rounded-2xl overflow-hidden hover-lift h-full flex flex-col'>
+                  <div className='relative w-full h-44'>
+                    <Image
+                      src={point.image}
+                      alt={point.title}
+                      fill
+                      className='object-cover'
+                      sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw'
+                    />
                   </div>
-                  <h3 className='text-lg font-semibold text-gray-900 mb-2'>{point.title}</h3>
-                  <p className='text-gray-500 text-sm leading-relaxed'>{point.description}</p>
+                  <div className='p-6 flex flex-col flex-1'>
+                    <h3 className='text-lg font-semibold text-gray-900 mb-2'>{point.title}</h3>
+                    <p className='text-gray-500 text-sm leading-relaxed'>{point.description}</p>
+                  </div>
                 </div>
               </ScrollReveal>
             ))}
@@ -314,7 +327,7 @@ export default function Home() {
                 </Link>
               </div>
               <div className='grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 border-t border-blue-800'>
-                <p className='text-sm text-blue-200'>+91 7904329569</p>
+                <p className='text-sm text-blue-200'>+91 9994025037</p>
                 <p className='text-sm text-blue-200'>fudedevelopments@gmail.com</p>
                 <p className='text-sm text-blue-200'>Erode, India</p>
               </div>

@@ -331,7 +331,7 @@ export default function AboutUs() {
             </div>
             <div className='bg-white border border-gray-100 rounded-2xl p-6 text-center hover:shadow-md transition-all duration-200'>
               <h3 className='font-semibold text-gray-900 mb-2'>Phone</h3>
-              <p className='text-sm text-gray-500'>+91 7904329569</p>
+              <p className='text-sm text-gray-500'>+91 9994025037</p>
             </div>
           </div>
           <div className='text-center mt-10'>
