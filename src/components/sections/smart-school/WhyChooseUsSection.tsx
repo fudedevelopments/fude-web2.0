@@ -67,25 +67,24 @@ export default function WhyChooseUsSection() {
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6'>
           {reasons.map((reason, index) => (
             <ScrollReveal key={reason.title} delay={index * 100}>
-              <div className='group relative bg-white border border-gray-100 rounded-2xl overflow-hidden hover-lift text-center h-full'>
-                <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10' />
+              <div className='bg-white border border-gray-100 rounded-2xl overflow-hidden hover-lift text-center h-full'>
                 <div className='relative w-full h-44 overflow-hidden'>
                   <Image
                     src={reason.image}
                     alt={reason.title}
                     fill
-                    className='object-cover transition-transform duration-500 group-hover:scale-105'
+                    className='object-cover'
                     sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw'
                   />
                 </div>
-                <div className='relative p-7'>
-                  <div className='w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-5 text-blue-600 group-hover:bg-white/20 group-hover:text-white transition-all duration-300'>
+                <div className='p-7'>
+                  <div className='w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-5 text-blue-600'>
                     {reason.icon}
                   </div>
-                  <h3 className='text-lg font-semibold text-gray-900 mb-2 group-hover:text-white transition-colors duration-300'>
+                  <h3 className='text-lg font-semibold text-gray-900 mb-2'>
                     {reason.title}
                   </h3>
-                  <p className='text-sm text-gray-500 leading-relaxed group-hover:text-blue-100 transition-colors duration-300'>
+                  <p className='text-sm text-gray-500 leading-relaxed'>
                     {reason.description}
                   </p>
                 </div>

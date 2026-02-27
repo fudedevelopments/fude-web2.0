@@ -68,21 +68,18 @@ export default function CoreFeaturesSection() {
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6'>
           {features.map((feature, index) => (
             <ScrollReveal key={feature.title} delay={index * 100}>
-              <div className='group relative bg-white border border-gray-100 rounded-2xl overflow-hidden hover-lift h-full'>
-                {/* Hover glow effect */}
-                <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-50 to-amber-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10' />
-                {/* Feature image */}
+              <div className='bg-white border border-gray-100 rounded-2xl overflow-hidden hover-lift h-full'>
                 <div className='relative w-full h-44 overflow-hidden'>
                   <Image
                     src={feature.image}
                     alt={feature.title}
                     fill
-                    className='object-cover transition-transform duration-500 group-hover:scale-105'
+                    className='object-cover'
                     sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw'
                   />
                 </div>
-                <div className='relative p-7'>
-                  <div className='w-12 h-12 bg-gradient-to-br from-blue-100 to-blue-50 rounded-xl flex items-center justify-center mb-5 text-blue-600 group-hover:from-blue-600 group-hover:to-blue-500 group-hover:text-white transition-all duration-300'>
+                <div className='p-7'>
+                  <div className='w-12 h-12 bg-gradient-to-br from-blue-100 to-blue-50 rounded-xl flex items-center justify-center mb-5 text-blue-600'>
                     {feature.icon}
                   </div>
                   <h3 className='text-lg font-semibold text-gray-900 mb-2'>{feature.title}</h3>

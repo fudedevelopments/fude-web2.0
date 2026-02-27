@@ -1,12 +1,13 @@
-﻿import Link from 'next/link'
+﻿import Image from 'next/image'
+import Link from 'next/link'
 
 const services = [
-  { title: 'Web Development', description: 'Modern, responsive websites built with React, Next.js, and TypeScript.' },
-  { title: 'Mobile Apps', description: 'Native and cross-platform mobile apps using React Native and Flutter.' },
-  { title: 'AI Solutions', description: 'Custom AI and machine learning solutions tailored to your business.' },
-  { title: 'Cloud Services', description: 'Scalable cloud infrastructure on AWS, GCP, and Azure.' },
-  { title: 'Backend Systems', description: 'Robust server-side architecture, APIs, and database solutions.' },
-  { title: 'UI/UX Design', description: 'User-centered design that converts visitors and engages users.' },
+  { title: 'Web Development', description: 'Modern, responsive websites built with React, Next.js, and TypeScript.', image: '/images/OurServices/WebDevelopment.png', fit: 'object-cover' },
+  { title: 'Mobile Apps', description: 'Native and cross-platform mobile apps using React Native and Flutter.', image: '/images/OurServices/MobileApps.webp', fit: 'object-cover' },
+  { title: 'AI Solutions', description: 'Custom AI and machine learning solutions tailored to your business.', image: '/images/OurServices/AI-Solution.jpg', fit: 'object-cover' },
+  { title: 'Cloud Services', description: 'Scalable cloud infrastructure on AWS, GCP, and Azure.', image: '/images/OurServices/CloudServices.png', fit: 'object-cover' },
+  { title: 'Backend Systems', description: 'Robust server-side architecture, APIs, and database solutions.', image: '/images/OurServices/BackendSystem.png', fit: 'object-contain' },
+  { title: 'UI/UX Design', description: 'User-centered design that converts visitors and engages users.', image: '/images/OurServices/UI&Ux.png', fit: 'object-contain' },
 ]
 
 const processSteps = [
@@ -43,12 +44,20 @@ export default function ServicesPage() {
         <div className='max-w-6xl mx-auto'>
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
             {services.map((service) => (
-              <div key={service.title} className='bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-md transition-all duration-200'>
-                <div className='w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-4'>
-                  <div className='w-2.5 h-2.5 bg-blue-900 rounded-full' />
+              <div key={service.title} className='bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-md transition-all duration-200'>
+                <div className='relative w-full h-44 bg-gray-50'>
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className={service.fit}
+                    sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'
+                  />
                 </div>
-                <h3 className='text-lg font-semibold text-gray-900 mb-2'>{service.title}</h3>
-                <p className='text-sm text-gray-500 leading-relaxed'>{service.description}</p>
+                <div className='p-6'>
+                  <h3 className='text-lg font-semibold text-gray-900 mb-2'>{service.title}</h3>
+                  <p className='text-sm text-gray-500 leading-relaxed'>{service.description}</p>
+                </div>
               </div>
             ))}
           </div>

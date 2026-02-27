@@ -15,16 +15,19 @@ export default function Home() {
       title: 'Our Vision',
       description:
         'To be the leading development company that transforms businesses through innovative technology solutions.',
+      image: '/images/AboutFude/OurVission.png',
     },
     {
       title: 'Our Mission',
       description:
         'Empowering businesses with cutting-edge solutions, responsive designs, and scalable applications that drive growth.',
+      image: '/images/AboutFude/ourMission.jpg',
     },
     {
       title: 'Our Values',
       description:
         'Innovation, Quality, Integrity, and Customer Success are at the core of everything we do.',
+      image: '/images/AboutFude/Ourvalues.avif',
     },
   ]
 
@@ -224,12 +227,20 @@ export default function Home() {
           <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
             {values.map((v, index) => (
               <ScrollReveal key={v.title} delay={index * 100}>
-                <div className='bg-white border border-gray-100 rounded-2xl p-8 text-center hover-lift h-full'>
-                  <div className='w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mx-auto mb-5'>
-                    <div className='w-3 h-3 bg-blue-900 rounded-full' />
+                <div className='bg-white border border-gray-100 rounded-2xl overflow-hidden hover-lift h-full'>
+                  <div className='relative w-full h-44'>
+                    <Image
+                      src={v.image}
+                      alt={v.title}
+                      fill
+                      className='object-cover'
+                      sizes='(max-width: 768px) 100vw, 33vw'
+                    />
                   </div>
-                  <h3 className='text-xl font-semibold text-gray-900 mb-3'>{v.title}</h3>
-                  <p className='text-gray-500 leading-relaxed'>{v.description}</p>
+                  <div className='p-8 text-center'>
+                    <h3 className='text-xl font-semibold text-gray-900 mb-3'>{v.title}</h3>
+                    <p className='text-gray-500 leading-relaxed'>{v.description}</p>
+                  </div>
                 </div>
               </ScrollReveal>
             ))}
