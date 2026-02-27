@@ -1,11 +1,13 @@
 'use client'
 
+import Image from 'next/image'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 
 const reasons = [
   {
     title: 'Secure Cloud-Based Platform',
     description: 'Enterprise-grade security with encrypted data storage, automated backups, and compliance with educational data standards.',
+    image: '/images/whySchoolUs/Cloud-Data-Security.webp',
     icon: (
       <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
         <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={1.5} d='M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' />
@@ -15,6 +17,7 @@ const reasons = [
   {
     title: 'Easy Setup & Training',
     description: 'Go live in days, not months. We handle onboarding, data migration, and comprehensive staff training at no extra cost.',
+    image: '/images/whySchoolUs/easysetup.webp',
     icon: (
       <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
         <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={1.5} d='M13 10V3L4 14h7v7l9-11h-7z' />
@@ -24,6 +27,7 @@ const reasons = [
   {
     title: 'Dedicated Support Team',
     description: 'Round-the-clock technical support with dedicated account managers who understand the education domain deeply.',
+    image: '/images/whySchoolUs/Dedicated-support.jpg',
     icon: (
       <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
         <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={1.5} d='M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z' />
@@ -33,6 +37,7 @@ const reasons = [
   {
     title: 'AI-Powered Automation',
     description: 'Automate report generation, attendance alerts, fee reminders, and routine tasks — freeing staff to focus on education.',
+    image: '/images/whySchoolUs/Ai-powered-Automation.png',
     icon: (
       <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
         <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={1.5} d='M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z' />
@@ -62,9 +67,18 @@ export default function WhyChooseUsSection() {
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6'>
           {reasons.map((reason, index) => (
             <ScrollReveal key={reason.title} delay={index * 100}>
-              <div className='group relative bg-white border border-gray-100 rounded-2xl p-7 hover-lift text-center h-full'>
-                <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
-                <div className='relative'>
+              <div className='group relative bg-white border border-gray-100 rounded-2xl overflow-hidden hover-lift text-center h-full'>
+                <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10' />
+                <div className='relative w-full h-44 overflow-hidden'>
+                  <Image
+                    src={reason.image}
+                    alt={reason.title}
+                    fill
+                    className='object-cover transition-transform duration-500 group-hover:scale-105'
+                    sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw'
+                  />
+                </div>
+                <div className='relative p-7'>
                   <div className='w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-5 text-blue-600 group-hover:bg-white/20 group-hover:text-white transition-all duration-300'>
                     {reason.icon}
                   </div>
