@@ -58,7 +58,7 @@ export default function Footer() {
                   fudedevelopments@gmail.com
                 </a>
               </li>
-              <li>+91 7904329569</li>
+              <li>+91 9994025037</li>
               <li>Erode, Tamil Nadu 638053</li>
             </ul>
             {/* Social */}

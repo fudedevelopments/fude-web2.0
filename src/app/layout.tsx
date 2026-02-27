@@ -150,7 +150,7 @@ export default function RootLayout({
     '@id': siteUrl + '/#organization',
     name: 'Fude Development',
     image: siteUrl + '/images/logo/fude-logo.svg',
-    telephone: '+91 7904329569',
+    telephone: '+91 9994025037',
     email: 'fudedevelopments@gmail.com',
     address: {
       '@type': 'PostalAddress',

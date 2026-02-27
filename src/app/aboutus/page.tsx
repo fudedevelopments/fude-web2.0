@@ -101,7 +101,7 @@ const organizationSchema = {
     'Fude Development is a cutting-edge AI-powered software development company in Erode, Tamil Nadu, specialising in web development, mobile applications, machine learning, and intelligent automation.',
   foundingDate: '2020',
   email: 'contact@fudedevelopments.com',
-  telephone: '+91-7904329569',
+  telephone: '+91-9994025037',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Slatter Nagar, Perunduari',
