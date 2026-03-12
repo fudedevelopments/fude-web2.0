@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import siteConfig from '@/config/site'
 
 const navLinks = [
   { label: 'Home', href: '/' },
@@ -24,8 +25,8 @@ export default function Navbar() {
           {/* Logo */}
           <Link href='/' className='flex items-center gap-2.5'>
             <Image
-              src='/images/logo/fude-logo.svg'
-              alt='Fude Development'
+              src={siteConfig.logoPath}
+              alt={siteConfig.companyName}
               width={32}
               height={32}
               className='w-8 h-8'

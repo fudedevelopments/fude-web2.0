@@ -1,5 +1,6 @@
 ﻿import Image from 'next/image'
 import Link from 'next/link'
+import { servicesFaqSchema } from '@/lib/structured-data'
 
 const services = [
   { title: 'Web Development', description: 'Modern, responsive websites built with React, Next.js, and TypeScript.', image: '/images/OurServices/WebDevelopment.png', fit: 'object-cover' },
@@ -26,6 +27,11 @@ const technologies = [
 
 export default function ServicesPage() {
   return (
+    <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesFaqSchema) }}
+      />
     <div>
       {/* Hero */}
       <section className='pt-32 pb-16 px-4 sm:px-6 lg:px-8'>
@@ -123,5 +129,6 @@ export default function ServicesPage() {
         </div>
       </section>
     </div>
+    </>
   )
 }

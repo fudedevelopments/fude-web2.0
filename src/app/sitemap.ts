@@ -1,9 +1,10 @@
 import { MetadataRoute } from 'next'
+import siteConfig from '@/config/site'
 
 export const dynamic = 'force-static'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.fude.in'
+  const baseUrl = siteConfig.websiteUrl
 
   // Use consistent date to improve caching
   const now = new Date()

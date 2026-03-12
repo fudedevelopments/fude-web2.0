@@ -1,52 +1,14 @@
 import { Metadata } from 'next'
+import siteConfig from '@/config/site'
+import { pageKeywords } from '@/config/seo-keywords'
 
-const baseUrl = 'https://fudedevelopments.com'
+const baseUrl = siteConfig.websiteUrl
 
 export const metadata: Metadata = {
   title: 'Contact Us - Android App & Web Development Company in Erode',
   description:
     'Contact Fude Development, the best IT company in Erode, Tamil Nadu for Android app development, website development, and custom software solutions. Get a free consultation for your project.',
-  keywords: [
-    'contact Fude Development',
-    // Erode
-    'Android app development in Erode',
-    'Web development company in Erode',
-    'IT company in Erode contact',
-    'Software company in Erode',
-    'Best app developers in Erode',
-    'Website designers in Erode contact',
-    'Custom software solutions in Erode',
-    'Web development consultation Erode',
-    'E-commerce website development Erode',
-    'Technology consulting Erode',
-    // Coimbatore
-    'Android app development in Coimbatore',
-    'Web development company in Coimbatore',
-    'IT company in Coimbatore contact',
-    'Software company in Coimbatore',
-    'Best app developers in Coimbatore',
-    'Website designers in Coimbatore contact',
-    'Custom software solutions in Coimbatore',
-    'Web development consultation Coimbatore',
-    'E-commerce website development Coimbatore',
-    'Technology consulting Coimbatore',
-    // Tiruppur
-    'Android app development in Tiruppur',
-    'Web development company in Tiruppur',
-    'IT company in Tiruppur contact',
-    'Software company in Tiruppur',
-    'Best app developers in Tiruppur',
-    'Website designers in Tiruppur contact',
-    'Custom software solutions in Tiruppur',
-    'Web development consultation Tiruppur',
-    'E-commerce website development Tiruppur',
-    'Technology consulting Tiruppur',
-    // General
-    'Mobile app development consultation',
-    'Android app development quote',
-    'Software development inquiry Tamil Nadu',
-    'Business website development contact',
-  ],
+  keywords: [...pageKeywords.contact],
   openGraph: {
     title: 'Contact Fude Development - Best IT Company in Erode, Tamil Nadu',
     description:

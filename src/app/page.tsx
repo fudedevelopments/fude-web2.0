@@ -1,6 +1,7 @@
 ﻿import Image from 'next/image'
 import Link from 'next/link'
 import ScrollReveal from '@/components/ui/ScrollReveal'
+import { homeFaqSchema } from '@/lib/structured-data'
 
 export default function Home() {
   const stats = [
@@ -64,6 +65,11 @@ export default function Home() {
   ]
 
   return (
+    <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeFaqSchema) }}
+      />
     <div>
       {/* Hero */}
       <section className='pt-32 pb-20 px-4 sm:px-6 lg:px-8'>
@@ -347,5 +353,6 @@ export default function Home() {
         </div>
       </section>
     </div>
+    </>
   )
 }

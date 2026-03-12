@@ -1,8 +1,9 @@
 ﻿import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import siteConfig from '@/config/site'
 
-const PAGE_URL = 'https://www.fude.digital/aboutus/'
+const PAGE_URL = `${siteConfig.websiteUrl}/aboutus/`
 
 export const metadata: Metadata = {
   title: 'About Us | Fude Development – AI Software Company in Erode, Tamil Nadu',
@@ -94,26 +95,26 @@ export const metadata: Metadata = {
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Fude Development',
-  url: 'https://www.fude.digital',
-  logo: 'https://www.fude.digital/images/logo/fude-logo.png',
+  name: siteConfig.companyName,
+  url: siteConfig.websiteUrl,
+  logo: siteConfig.websiteUrl + siteConfig.logoPath,
   description:
-    'Fude Development is a cutting-edge AI-powered software development company in Erode, Tamil Nadu, specialising in web development, mobile applications, machine learning, and intelligent automation.',
-  foundingDate: '2020',
-  email: 'contact@fudedevelopments.com',
-  telephone: '+91-9994025037',
+    `${siteConfig.companyName} is a cutting-edge AI-powered software development company in ${siteConfig.address.city}, ${siteConfig.address.state}, specialising in web development, mobile applications, machine learning, and intelligent automation.`,
+  foundingDate: siteConfig.foundingDate,
+  email: siteConfig.companyEmail,
+  telephone: siteConfig.phone,
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Slatter Nagar, Perunduari',
-    addressLocality: 'Erode',
-    addressRegion: 'Tamil Nadu',
-    postalCode: '638053',
-    addressCountry: 'IN',
+    streetAddress: siteConfig.address.street,
+    addressLocality: siteConfig.address.city,
+    addressRegion: siteConfig.address.state,
+    postalCode: siteConfig.address.postalCode,
+    addressCountry: siteConfig.address.countryCode,
   },
-  areaServed: ['Erode', 'Coimbatore', 'Tiruppur', 'Tamil Nadu', 'India'],
+  areaServed: [...siteConfig.areasServed],
   sameAs: [
-    'https://linkedin.com/company/fudedevelopments',
-    'https://github.com/fudedevelopments',
+    siteConfig.socialLinks.linkedin,
+    siteConfig.socialLinks.github,
   ],
   knowsAbout: [
     'AI Development',
@@ -146,7 +147,7 @@ const breadcrumbSchema = {
       '@type': 'ListItem',
       position: 1,
       name: 'Home',
-      item: 'https://www.fude.digital/',
+      item: `${siteConfig.websiteUrl}/`,
     },
     {
       '@type': 'ListItem',
@@ -160,14 +161,14 @@ const breadcrumbSchema = {
 const aboutPageSchema = {
   '@context': 'https://schema.org',
   '@type': 'AboutPage',
-  name: 'About Fude Development',
+  name: `About ${siteConfig.companyName}`,
   url: PAGE_URL,
   description:
-    'Learn about Fude Development — our story, our AI-powered services, our expert team, and the values that drive everything we build.',
+    `Learn about ${siteConfig.companyName} — our story, our AI-powered services, our expert team, and the values that drive everything we build.`,
   publisher: {
     '@type': 'Organization',
-    name: 'Fude Development',
-    url: 'https://www.fude.digital',
+    name: siteConfig.companyName,
+    url: siteConfig.websiteUrl,
   },
 }
 

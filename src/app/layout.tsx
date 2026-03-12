@@ -3,6 +3,7 @@ import { Inter, Poppins } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/ui/Navbar'
 import Footer from '@/components/ui/Footer'
+import siteConfig from '@/config/site'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const poppins = Poppins({
@@ -11,90 +12,45 @@ const poppins = Poppins({
   variable: '--font-poppins',
 })
 
-const baseUrl = 'https://fude.in'
-
 export const metadata: Metadata = {
-  metadataBase: new URL(baseUrl),
+  metadataBase: new URL(siteConfig.websiteUrl),
   title: {
-    default: 'Fude Development - Software Solutions & Web Development in Erode',
-    template: '%s | Fude Development',
+    default: siteConfig.defaultSEO.title,
+    template: siteConfig.defaultSEO.titleTemplate,
   },
-  description:
-    'Leading software development company in Erode, Tamil Nadu. Fude Development specializes in custom web applications, Android mobile apps, AI solutions, and business automation.',
-  keywords: [
-    'Fude Development',
-    // Erode
-    'Android app development in Erode',
-    'Web development company in Erode',
-    'Software company in Erode',
-    'IT company in Erode',
-    'Best app developers in Erode',
-    'Mobile app development in Erode',
-    'Website designers in Erode',
-    'Custom software solutions in Erode',
-    // Coimbatore
-    'Android app development in Coimbatore',
-    'Web development company in Coimbatore',
-    'Software company in Coimbatore',
-    'IT company in Coimbatore',
-    'Best app developers in Coimbatore',
-    'Mobile app development in Coimbatore',
-    'Website designers in Coimbatore',
-    'Custom software solutions in Coimbatore',
-    // Tiruppur
-    'Android app development in Tiruppur',
-    'Web development company in Tiruppur',
-    'Software company in Tiruppur',
-    'IT company in Tiruppur',
-    'Best app developers in Tiruppur',
-    'Mobile app development in Tiruppur',
-    'Website designers in Tiruppur',
-    'Custom software solutions in Tiruppur',
-    // Generic / India
-    'Android app development company',
-    'Website development company',
-    'Full-stack development company',
-    'Software development services India',
-    'Android app developers in Tamil Nadu',
-    'Web development company in Tamil Nadu',
-    'Best IT company in Tamil Nadu',
-    'AI development',
-    'React development',
-    'Next.js development',
-  ],
-  authors: [{ name: 'Fude Development Team' }],
-  creator: 'Fude Development',
-  publisher: 'Fude Development',
+  description: siteConfig.defaultSEO.description,
+  keywords: [...siteConfig.keywords],
+  authors: [{ name: `${siteConfig.companyName} Team` }],
+  creator: siteConfig.companyName,
+  publisher: siteConfig.companyName,
   icons: {
-    icon: [{ url: '/images/logo/fude-logo.svg', sizes: 'any', type: 'image/svg+xml' }],
-    shortcut: '/images/logo/fude-logo.svg',
-    apple: [{ url: '/images/logo/fude-logo.svg', sizes: '180x180', type: 'image/svg+xml' }],
+    icon: [{ url: siteConfig.logoPath, sizes: 'any', type: 'image/svg+xml' }],
+    shortcut: siteConfig.logoPath,
+    apple: [{ url: siteConfig.logoPath, sizes: '180x180', type: 'image/svg+xml' }],
   },
   manifest: '/manifest.json',
   openGraph: {
     type: 'website',
-    locale: 'en_US',
-    url: baseUrl,
-    siteName: 'Fude Development',
-    title: 'Fude Development - Software Solutions & Web Development in Erode',
-    description:
-      'Leading software development company in Erode, Tamil Nadu specializing in custom web applications, Android mobile apps, and business automation.',
+    locale: siteConfig.defaultSEO.locale,
+    url: siteConfig.websiteUrl,
+    siteName: siteConfig.companyName,
+    title: siteConfig.defaultSEO.title,
+    description: siteConfig.defaultSEO.description,
     images: [
       {
-        url: '/images/logo/fude-logo.svg',
+        url: siteConfig.logoPath,
         width: 1200,
         height: 630,
-        alt: 'Fude Development - Software Solutions',
+        alt: siteConfig.defaultSEO.ogImageAlt,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Fude Development - Software Solutions & Web Development in Erode',
-    description:
-      'Leading software development company in Erode, Tamil Nadu.',
-    images: ['/images/logo/fude-logo.svg'],
-    creator: '@fudedevelopments',
+    title: siteConfig.defaultSEO.title,
+    description: siteConfig.defaultSEO.description,
+    images: [siteConfig.logoPath],
+    creator: siteConfig.socialLinks.twitterHandle,
   },
   robots: {
     index: true,
@@ -115,64 +71,61 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const siteUrl = 'https://fudedevelopments.com'
-
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Fude Development',
-    url: siteUrl,
-    logo: siteUrl + '/images/logo/fude-logo.svg',
-    description:
-      'Leading software development company in Erode, Tamil Nadu.',
-    foundingDate: '2020',
+    name: siteConfig.companyName,
+    url: siteConfig.websiteUrl,
+    logo: siteConfig.websiteUrl + siteConfig.logoPath,
+    description: siteConfig.defaultSEO.description,
+    foundingDate: siteConfig.foundingDate,
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Erode',
-      addressRegion: 'Tamil Nadu',
-      addressCountry: 'India',
+      addressLocality: siteConfig.address.city,
+      addressRegion: siteConfig.address.state,
+      addressCountry: siteConfig.address.country,
     },
     sameAs: [
-      'https://linkedin.com/company/fudedevelopments',
-      'https://github.com/fudedevelopments',
+      siteConfig.socialLinks.linkedin,
+      siteConfig.socialLinks.github,
     ],
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer service',
-      email: 'fudedevelopments@gmail.com',
-      availableLanguage: ['English', 'Tamil'],
+      email: siteConfig.supportEmail,
+      availableLanguage: siteConfig.languages,
     },
   }
 
   const localBusinessData = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': siteUrl + '/#organization',
-    name: 'Fude Development',
-    image: siteUrl + '/images/logo/fude-logo.svg',
-    telephone: '+91 9994025037',
-    email: 'fudedevelopments@gmail.com',
+    '@id': siteConfig.websiteUrl + '/#organization',
+    name: siteConfig.companyName,
+    image: siteConfig.websiteUrl + siteConfig.logoPath,
+    telephone: siteConfig.phone,
+    email: siteConfig.supportEmail,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Slatter Nagar, Perunduari',
-      addressLocality: 'Erode',
-      addressRegion: 'Tamil Nadu',
-      postalCode: '638053',
-      addressCountry: 'IN',
+      streetAddress: siteConfig.address.street,
+      addressLocality: siteConfig.address.city,
+      addressRegion: siteConfig.address.state,
+      postalCode: siteConfig.address.postalCode,
+      addressCountry: siteConfig.address.countryCode,
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: '11.3410',
-      longitude: '77.7172',
+      latitude: siteConfig.geo.latitude,
+      longitude: siteConfig.geo.longitude,
     },
-    url: siteUrl,
+    url: siteConfig.websiteUrl,
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-      opens: '09:00',
-      closes: '18:00',
+      dayOfWeek: siteConfig.workingHours.days,
+      opens: siteConfig.workingHours.opens,
+      closes: siteConfig.workingHours.closes,
     },
-    priceRange: '5',
+    priceRange: siteConfig.priceRange,
   }
 
   return (
@@ -180,7 +133,7 @@ export default function RootLayout({
       <head>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <meta name='theme-color' content='#ffffff' />
-        <link rel='canonical' href={siteUrl} />
+        <link rel='canonical' href={siteConfig.websiteUrl} />
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
