@@ -4,6 +4,7 @@ import './globals.css'
 import Navbar from '@/components/ui/Navbar'
 import Footer from '@/components/ui/Footer'
 import siteConfig from '@/config/site'
+import { pageKeywords } from '@/config/seo-keywords'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const poppins = Poppins({
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
     template: siteConfig.defaultSEO.titleTemplate,
   },
   description: siteConfig.defaultSEO.description,
-  keywords: [...siteConfig.keywords],
+  keywords: [...pageKeywords.base],
   authors: [{ name: `${siteConfig.companyName} Team` }],
   creator: siteConfig.companyName,
   publisher: siteConfig.companyName,
@@ -75,6 +76,7 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: siteConfig.companyName,
+    alternateName: siteConfig.brandShortName,
     url: siteConfig.websiteUrl,
     logo: siteConfig.websiteUrl + siteConfig.logoPath,
     description: siteConfig.defaultSEO.description,
@@ -89,6 +91,10 @@ export default function RootLayout({
       siteConfig.socialLinks.linkedin,
       siteConfig.socialLinks.github,
     ],
+    areaServed: siteConfig.areasServed.map((area) => ({
+      '@type': 'Place',
+      name: area,
+    })),
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer service',
@@ -119,6 +125,10 @@ export default function RootLayout({
       longitude: siteConfig.geo.longitude,
     },
     url: siteConfig.websiteUrl,
+    areaServed: siteConfig.areasServed.map((area) => ({
+      '@type': 'Place',
+      name: area,
+    })),
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: siteConfig.workingHours.days,
@@ -126,6 +136,21 @@ export default function RootLayout({
       closes: siteConfig.workingHours.closes,
     },
     priceRange: siteConfig.priceRange,
+  }
+
+  const websiteData = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': siteConfig.websiteUrl + '/#website',
+    url: siteConfig.websiteUrl,
+    name: siteConfig.companyName,
+    alternateName: siteConfig.brandShortName,
+    description: siteConfig.defaultSEO.description,
+    publisher: {
+      '@type': 'Organization',
+      name: siteConfig.companyName,
+      url: siteConfig.websiteUrl,
+    },
   }
 
   return (
@@ -141,6 +166,10 @@ export default function RootLayout({
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessData) }}
+        />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteData) }}
         />
       </head>
       <body className={inter.variable + ' ' + poppins.variable + ' font-sans antialiased'}>

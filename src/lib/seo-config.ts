@@ -1,3 +1,4 @@
+import { pageKeywords } from '@/config/seo-keywords'
 import siteConfig from '@/config/site'
 
 export const seoConfig = {
@@ -6,7 +7,7 @@ export const seoConfig = {
   defaultMeta: {
     title: siteConfig.defaultSEO.title,
     description: siteConfig.defaultSEO.description,
-    keywords: [...siteConfig.keywords],
+    keywords: [...pageKeywords.base],
   },
 
   location: {

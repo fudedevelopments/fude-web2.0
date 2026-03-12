@@ -14,7 +14,7 @@ const PAGE_URL = `${siteConfig.websiteUrl}/smart-school/`
 export const metadata: Metadata = {
   title: 'AI-Powered Smart School Management System | Fude Development',
   description:
-    'Transform your school with AI-powered ERP by Fude Development. Automate administration, track buses in real-time, deliver personalised learning, manage attendance & fees — all from one platform. Serving schools in Erode, Coimbatore, Tiruppur & Tamil Nadu.',
+    'Transform your school with AI-powered ERP by Fude Development. Manage admissions, attendance, fees, exams, parent communication, and live bus tracking from one platform. Serving schools in Erode, Coimbatore, Tiruppur, Salem, Karur, and across Tamil Nadu.',
   keywords: [...pageKeywords.smartSchool],
   alternates: {
     canonical: PAGE_URL,

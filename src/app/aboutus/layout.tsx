@@ -7,7 +7,7 @@ const baseUrl = siteConfig.websiteUrl
 export const metadata: Metadata = {
   title: 'About Us - Best IT Company in Erode | Fude Development Team',
   description:
-    'Learn about Fude Development, the leading software company in Erode, Tamil Nadu. Meet our expert team of Android app developers, web developers, and AI specialists driving digital transformation across India.',
+    'Learn about Fude Development, the software company in Erode serving Coimbatore, Tiruppur, Salem, and Karur. Meet our team building websites, mobile apps, AI solutions, and School ERP software across Tamil Nadu.',
   keywords: [...pageKeywords.about],
   openGraph: {
     title: 'About Fude Development - Best IT Company in Erode, Tamil Nadu',

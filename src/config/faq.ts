@@ -64,6 +64,14 @@ export const generalFaq: FaqItem[] = [
     question: `When was ${siteConfig.companyName} founded?`,
     answer: `${siteConfig.companyName} was founded in ${siteConfig.foundingDate}. Over the years we have delivered 50+ successful projects and built a reputation as one of the best software development companies in Erode, Tamil Nadu.`,
   },
+  {
+    question: `Does ${siteConfig.companyName} serve Salem and Karur?`,
+    answer: `Yes. ${siteConfig.companyName} actively serves businesses and institutions in Salem and Karur in addition to Erode, Coimbatore, Tiruppur, Chennai, and the rest of Tamil Nadu. We handle projects remotely and on scheduled consultation calls for clients across South India.`,
+  },
+  {
+    question: `Which industries does ${siteConfig.companyName} work with?`,
+    answer: `${siteConfig.companyName} works with schools, educational institutions, startups, retail businesses, manufacturers, healthcare providers, service companies, and growing enterprises that need modern websites, mobile apps, ERP software, AI solutions, and business automation.`,
+  },
 ]
 
 // ─── Services FAQ ─────────────────────────────────────────────────────────────
@@ -160,6 +168,10 @@ export const aboutFaq: FaqItem[] = [
     question: 'Does Fude Development serve clients outside Erode?',
     answer: `Yes. We serve clients across Coimbatore, Tiruppur, Chennai, Bangalore, and international markets. Our remote-first workflow ensures seamless collaboration regardless of geography.`,
   },
+  {
+    question: 'Does Fude Development work with clients in Salem and Karur?',
+    answer: `Yes. ${siteConfig.companyName} works with businesses, schools, and organizations in Salem and Karur for website development, mobile app development, custom software, AI solutions, and School ERP software.`,
+  },
 ]
 
 // ─── Smart School FAQ ─────────────────────────────────────────────────────────
@@ -203,6 +215,18 @@ export const smartSchoolFaq: FaqItem[] = [
   {
     question: 'Is there a demo available for the smart school software?',
     answer: `Yes. You can request a free live demo by contacting us at ${siteConfig.supportEmail} or calling ${siteConfig.phone}. We will schedule a personalised walkthrough for your school's staff.`,
+  },
+  {
+    question: 'Is the smart school ERP available for schools in Salem and Karur?',
+    answer: `Yes. ${siteConfig.companyName} offers the Smart School Management System to schools in Salem, Karur, Erode, Coimbatore, Tiruppur, Chennai, and across Tamil Nadu. We provide onboarding, setup, training, and support for schools throughout the region.`,
+  },
+  {
+    question: 'Does the school ERP include attendance, fees, exams, and parent communication in one platform?',
+    answer: 'Yes. The platform combines attendance management, fee collection, admissions, timetable management, exam records, report cards, staff management, homework sharing, parent notifications, and live bus tracking in one unified school ERP system.',
+  },
+  {
+    question: 'Can private schools, matric schools, and CBSE schools use this ERP software?',
+    answer: 'Yes. The software is suitable for private schools, matriculation schools, CBSE schools, ICSE schools, and State Board schools. Modules can be configured based on the school workflow, class structure, transport operations, and fee process.',
   },
 ]
 

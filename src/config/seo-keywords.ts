@@ -9,10 +9,21 @@
 // ─── Base Keywords (included on every page) ───────────────────────────────────
 const base = [
   // Brand
-  'Fude Development',
-  'Fude Development Erode',
-  'Fude Developments',
+  'Fude',
+  'fude',
   'fude.in',
+  'Fude Development',
+  'Fude Developments',
+  'Fude official website',
+  'Fude Development official website',
+  'Fude Development Erode',
+  'Fude software company',
+  'Fude IT company',
+  'Fude web development',
+  'Fude app development',
+  'Fude software solutions',
+  'Fude Tamil Nadu',
+  'Fude India',
   // Location – Erode
   'software company in Erode',
   'IT company in Erode',
@@ -22,6 +33,8 @@ const base = [
   'best software company in Erode',
   'best IT company in Erode',
   'best app developers in Erode',
+  'website designers in Erode',
+  'custom software development in Erode',
   'tech startup Erode',
   // Location – Coimbatore
   'software company in Coimbatore',
@@ -30,12 +43,30 @@ const base = [
   'mobile app development in Coimbatore',
   'Android app development in Coimbatore',
   'best IT company in Coimbatore',
+  'custom software development in Coimbatore',
   // Location – Tiruppur
   'software company in Tiruppur',
   'IT company in Tiruppur',
   'web development company in Tiruppur',
   'mobile app development in Tiruppur',
   'Android app development in Tiruppur',
+  'custom software development in Tiruppur',
+  // Location – Salem
+  'software company in Salem',
+  'IT company in Salem',
+  'web development company in Salem',
+  'mobile app development in Salem',
+  'Android app development in Salem',
+  'website designers in Salem',
+  'custom software development in Salem',
+  // Location – Karur
+  'software company in Karur',
+  'IT company in Karur',
+  'web development company in Karur',
+  'mobile app development in Karur',
+  'Android app development in Karur',
+  'website designers in Karur',
+  'custom software development in Karur',
   // Region
   'software company Tamil Nadu',
   'IT company Tamil Nadu',
@@ -48,9 +79,13 @@ const base = [
 const home = [
   ...base,
   // Brand intent
+  'Fude company',
+  'what is Fude',
+  'Fude website',
   'Fude Development official website',
   'Fude Development services',
   'Fude Development portfolio',
+  'Fude Development company profile',
   // Primary services
   'web development company India',
   'Android app development company India',
@@ -59,6 +94,8 @@ const home = [
   'custom software development India',
   'full stack development company',
   'e-commerce website development India',
+  'school ERP software company India',
+  'smart school software company Tamil Nadu',
   // AI & ML
   'AI powered software solutions',
   'machine learning solutions India',
@@ -81,6 +118,11 @@ const home = [
   'Erode digital agency',
   'Erode tech company',
   'Erode software solutions',
+  // Nearby cities
+  'software company Salem Tamil Nadu',
+  'software company Karur Tamil Nadu',
+  'web development company Salem',
+  'web development company Karur',
 ]
 
 // ─── About Us Page ────────────────────────────────────────────────────────────
@@ -88,6 +130,7 @@ const about = [
   ...base,
   // About intent
   'about Fude Development',
+  'about Fude',
   'Fude Development team',
   'Fude Development company profile',
   'who is Fude Development',
@@ -116,6 +159,8 @@ const about = [
   'software company near me Erode',
   'IT professionals Erode',
   'tech experts Erode Tamil Nadu',
+  'software company Salem team',
+  'software company Karur team',
 ]
 
 // ─── Services Page ────────────────────────────────────────────────────────────
@@ -162,6 +207,13 @@ const services = [
   'cost effective app development',
   'software development quote India',
   'get free consultation software India',
+  // School ERP
+  'school ERP software company',
+  'school management software company India',
+  'school ERP software Tamil Nadu',
+  'smart school software provider',
+  'education ERP software India',
+  'school automation software company',
 ]
 
 // ─── Contact Us Page ──────────────────────────────────────────────────────────
@@ -169,6 +221,7 @@ const contact = [
   ...base,
   // Intent
   'contact Fude Development',
+  'contact Fude',
   'hire Fude Development',
   'get a quote from Fude Development',
   'work with Fude Development',
@@ -191,10 +244,13 @@ const contact = [
   'IT company phone number Erode',
   'IT office Erode',
   'developer near me Erode',
+  'software company contact Salem',
+  'software company contact Karur',
 ]
 
 // ─── Smart School Page ────────────────────────────────────────────────────────
 const smartSchool = [
+  ...base,
   // Product core
   'smart school management system',
   'school ERP software',
@@ -237,12 +293,26 @@ const smartSchool = [
   'school management system in Tiruppur',
   'school ERP software in Tiruppur',
   'smart school Tiruppur',
+  // Location – Salem
+  'school management system in Salem',
+  'school ERP software in Salem',
+  'smart school software Salem',
+  'school bus tracking Salem',
+  // Location – Karur
+  'school management system in Karur',
+  'school ERP software in Karur',
+  'smart school software Karur',
+  'school bus tracking Karur',
   // Region
   'school ERP software Tamil Nadu',
   'school management software Tamil Nadu',
   'school ERP India',
   'AI education software India',
   'best school ERP India',
+  'best school ERP software Tamil Nadu',
+  'school ERP for CBSE schools in Tamil Nadu',
+  'school ERP for matric schools in Tamil Nadu',
+  'school ERP for higher secondary schools',
   'school management system for CBSE schools',
   'school management system for state board schools',
   // Intent
@@ -251,6 +321,15 @@ const smartSchool = [
   'school ERP pricing India',
   'school digitization solution',
   'paperless school management',
+  'school ERP demo Tamil Nadu',
+  'school management software for private schools',
+  'school ERP with parent app',
+  'school ERP with bus tracking',
+  'school ERP with fee management',
+  // Brand + product
+  'Fude school ERP',
+  'Fude smart school software',
+  'Fude school management system',
 ]
 
 // ─── Exported Map ─────────────────────────────────────────────────────────────
