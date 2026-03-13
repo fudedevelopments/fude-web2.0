@@ -59,7 +59,7 @@ export default function WhyChooseUsSection() {
               Become the Premier School in Your City
             </h2>
             <p className='text-lg text-gray-500 max-w-2xl mx-auto'>
-              Equip your institution with cutting-edge tools that don't just solve problems—they make your school the undeniable first choice for parents.
+              Equip your institution with cutting-edge tools that don&apos;t just solve problems—they make your school the undeniable first choice for parents.
             </p>
           </div>
         </ScrollReveal>

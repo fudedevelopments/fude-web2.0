@@ -144,7 +144,7 @@ export default function HeroSection() {
                   </div>
                   <h3 className='text-xl font-bold text-gray-900 mb-2'>Request Received!</h3>
                   <p className='text-sm text-gray-500 mb-6'>
-                    We'll contact you shortly to schedule your personalized demo.
+                    We&apos;ll contact you shortly to schedule your personalized demo.
                   </p>
                   <button
                     onClick={() => setResult('')}
@@ -158,7 +158,7 @@ export default function HeroSection() {
                   <div className='mb-6'>
                     <h3 className='text-2xl font-bold text-gray-900 mb-2'>Request a Free Demo</h3>
                     <p className='text-sm text-gray-500'>
-                      Fill in your details and we'll schedule a personalized walkthrough.
+                      Fill in your details and we&apos;ll schedule a personalized walkthrough.
                     </p>
                   </div>
 
