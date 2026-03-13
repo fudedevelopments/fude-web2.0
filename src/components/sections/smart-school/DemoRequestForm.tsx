@@ -70,9 +70,7 @@ export default function DemoRequestForm() {
 
             <ScrollReveal delay={200}>
               <p className='text-lg text-gray-500 leading-relaxed mb-8'>
-                Schedule a personalized demo and discover how our AI-powered platform
-                can transform your school management. Our team will walk you through
-                every feature tailored to your institution&apos;s needs.
+                See exactly how our platform can give your school the competitive edge. We&apos;ll show you how to digitize your entire campus, impress parents, and become the top-rated institution in your area.
               </p>
             </ScrollReveal>
 
@@ -82,29 +80,29 @@ export default function DemoRequestForm() {
                   {
                     icon: (
                       <svg className='w-5 h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z' />
+                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M13 10V3L4 14h7v7l9-11h-7z' />
                       </svg>
                     ),
-                    title: 'Quick Response',
-                    desc: 'Our team will get back to you within 2 hours',
+                    title: 'Built for Top-Tier Schools',
+                    desc: 'Elevate your brand with a premium, fully-customized digital experience.',
                   },
                   {
                     icon: (
                       <svg className='w-5 h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' />
+                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z' />
                       </svg>
                     ),
-                    title: 'Free Setup & Training',
-                    desc: 'Complete onboarding support at no extra cost',
+                    title: 'Unmatched Parent Experience',
+                    desc: 'Impress parents with real-time updates and live GPS bus tracking.',
                   },
                   {
                     icon: (
                       <svg className='w-5 h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' />
+                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' />
                       </svg>
                     ),
-                    title: '30-Day Free Trial',
-                    desc: 'Try everything risk-free with no commitment',
+                    title: 'Zero-Friction Adoption',
+                    desc: 'We handle 100% of your data migration and team training in days.',
                   },
                 ].map((item) => (
                   <div key={item.title} className='flex items-start gap-4'>

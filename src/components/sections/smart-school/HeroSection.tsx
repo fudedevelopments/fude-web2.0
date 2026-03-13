@@ -68,11 +68,29 @@ export default function HeroSection() {
             </ScrollReveal>
 
             <ScrollReveal delay={300}>
-              <p className='text-base text-blue-100/80 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0'>
+              <p className='text-base text-blue-100/80 leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0'>
                 Transform your school with intelligent automation, AI-driven analytics,
                 complete transparency, and smart campus operations. One platform to manage
                 everything — from admissions to alumni.
               </p>
+              
+              {/* Shine Unique Highlight */}
+              <div className='bg-gradient-to-r from-blue-900/60 to-purple-900/60 border border-amber-500/30 rounded-2xl p-5 mb-8 backdrop-blur-md relative overflow-hidden group shadow-[0_0_20px_rgba(245,158,11,0.15)]'>
+                <div className='absolute -inset-1 bg-gradient-to-r from-amber-500/0 via-amber-500/20 to-amber-500/0 blur-lg group-hover:via-amber-500/40 transition-all duration-1000 animate-[shimmer_3s_infinite]' />
+                <div className='flex items-start gap-4 relative z-10 text-left'>
+                  <div className='mt-1 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full p-2 shadow-[0_0_15px_rgba(245,158,11,0.6)]'>
+                    <svg className='w-5 h-5 text-white' fill='currentColor' viewBox='0 0 20 20'>
+                      <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z' />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className='text-white font-bold text-lg mb-1 leading-tight'>Shine Unique Across All Schools</h3>
+                    <p className='text-blue-200 text-sm font-medium'>
+                      Stop being just another school. Use our AI platform to become the undeniable <span className='text-amber-400 font-bold'>#1 tech-driven educational leader</span> in your city.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </ScrollReveal>
 
             <ScrollReveal delay={400}>

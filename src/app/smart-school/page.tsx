@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import HeroSection from '@/components/sections/smart-school/HeroSection'
+import AiLearningSection from '@/components/sections/smart-school/AiLearningSection'
 import CoreFeaturesSection from '@/components/sections/smart-school/CoreFeaturesSection'
 import DashboardPreviewSection from '@/components/sections/smart-school/DashboardPreviewSection'
 import ParentsMobileSection from '@/components/sections/smart-school/ParentsMobileSection'
@@ -145,9 +146,10 @@ export default function SmartSchoolPage() {
       />
       <div className='-mt-16'>
         <HeroSection />
-        <CoreFeaturesSection />
+        <AiLearningSection />
         <DashboardPreviewSection />
         <ParentsMobileSection />
+        <CoreFeaturesSection />
         <WhyChooseUsSection />
         <DemoRequestForm />
         <ClosingCTASection />
