@@ -4,22 +4,22 @@ import ScrollReveal from '@/components/ui/ScrollReveal'
 
 const aiFeatures = [
   {
-    title: 'Instant Doubt Resolution',
-    description: 'Students can snap a picture of any problem in their book, and our AI instantly explains the solution step-by-step.',
+    title: 'Pre-Trained on Your Textbooks',
+    description: 'Our AI model is deeply integrated with your school\'s specific curriculum, functioning as a 24/7 personal tutor for every subject.',
     icon: (
       <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={1.5} d='M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z' />
+        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={1.5} d='M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253' />
       </svg>
     ),
     color: 'from-blue-500 to-blue-600',
     shadow: 'shadow-blue-500/20',
   },
   {
-    title: 'Adaptive Smart Tests',
-    description: 'AI generates custom mock tests based on exactly what the student has learned, identifying weak points automatically.',
+    title: 'Instant Text Doubt Clarification',
+    description: 'Whenever a student is confused, they can simply type their question and receive an immediate, accurate, and step-by-step textbook explanation.',
     icon: (
       <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={1.5} d='M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z' />
+        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={1.5} d='M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z' />
       </svg>
     ),
     color: 'from-purple-500 to-purple-600',
@@ -95,13 +95,13 @@ export default function AiLearningSection() {
                 {/* Visual Flow Container */}
                 <div className='flex flex-col space-y-6 relative'>
                   
-                  {/* Step 1: Snap Picture Phase */}
+                  {/* Step 1: Query Phase */}
                   <div className='bg-gray-50 rounded-2xl p-5 border border-gray-200 relative group hover:border-blue-200 transition-colors'>
                     <div className='absolute -top-3 -right-3 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center animate-bounce shadow-lg shadow-blue-500/30'>
-                      <span className='text-white text-lg'>📸</span>
+                      <span className='text-white text-lg'>✍️</span>
                     </div>
-                    <h4 className='font-bold text-gray-900 mb-1 text-lg'>1. Snap a Photo</h4>
-                    <p className='text-sm text-gray-500 font-medium'>Student takes a picture of any confusing topic in their textbook.</p>
+                    <h4 className='font-bold text-gray-900 mb-1 text-lg'>1. Ask Any Question</h4>
+                    <p className='text-sm text-gray-500 font-medium'>Students easily type in any academic question or doubt they have.</p>
                   </div>
 
                   {/* Connecting Line / Arrow */}
@@ -111,15 +111,15 @@ export default function AiLearningSection() {
                     </div>
                   </div>
 
-                  {/* Step 2: AI Magic Phase */}
+                  {/* Step 2: AI Magic Phase (Pre-trained Book) */}
                   <div className='bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-5 text-white shadow-lg relative overflow-hidden transform hover:scale-[1.02] transition-transform'>
                     <div className='absolute inset-0 bg-white/10 blur-xl animate-pulse delay-75' />
                     <div className='relative z-10'>
                       <h4 className='font-bold text-lg mb-1 flex items-center gap-2'>
-                        <svg className='w-5 h-5 animate-spin' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z' /><path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M15 12a3 3 0 11-6 0 3 3 0 016 0z' /></svg>
-                        2. AI Analyzes Instantly
+                        <svg className='w-5 h-5 animate-spin' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253' /></svg>
+                        2. Syllabus-Matched AI
                       </h4>
-                      <p className='text-sm text-blue-50 font-medium'>Our AI engine reads the syllabus and generates the exact step-by-step solution.</p>
+                      <p className='text-sm text-blue-50 font-medium'>The engine instantly cross-references the school's exact curriculum.</p>
                     </div>
                   </div>
 
@@ -135,8 +135,8 @@ export default function AiLearningSection() {
                     <div className='absolute -top-3 -right-3 w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center animate-bounce delay-300 text-white shadow-lg shadow-emerald-500/30'>
                       <span className='text-lg'>💡</span>
                     </div>
-                    <h4 className='font-bold text-lg mb-1'>3. Doubt Solved & Test Ready</h4>
-                    <p className='text-sm text-green-700 font-medium'>Student gets the answer, and their daily study plan automatically updates!</p>
+                    <h4 className='font-bold text-lg mb-1'>3. Clear Answers & Practice</h4>
+                    <p className='text-sm text-green-700 font-medium'>Students get an immediate step-by-step explanation and targeted practice tests.</p>
                   </div>
 
                 </div>
