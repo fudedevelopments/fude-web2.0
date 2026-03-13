@@ -4,6 +4,7 @@ import CoreFeaturesSection from '@/components/sections/smart-school/CoreFeatures
 import DashboardPreviewSection from '@/components/sections/smart-school/DashboardPreviewSection'
 import ParentsMobileSection from '@/components/sections/smart-school/ParentsMobileSection'
 import WhyChooseUsSection from '@/components/sections/smart-school/WhyChooseUsSection'
+import DemoRequestForm from '@/components/sections/smart-school/DemoRequestForm'
 import ClosingCTASection from '@/components/sections/smart-school/ClosingCTASection'
 import siteConfig from '@/config/site'
 import { pageKeywords } from '@/config/seo-keywords'
@@ -148,6 +149,7 @@ export default function SmartSchoolPage() {
         <DashboardPreviewSection />
         <ParentsMobileSection />
         <WhyChooseUsSection />
+        <DemoRequestForm />
         <ClosingCTASection />
       </div>
     </>

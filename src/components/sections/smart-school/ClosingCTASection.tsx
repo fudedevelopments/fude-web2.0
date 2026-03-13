@@ -37,7 +37,7 @@ export default function ClosingCTASection() {
         <ScrollReveal delay={300}>
           <div className='flex flex-col sm:flex-row gap-4 justify-center'>
             <a
-              href='/contactus'
+              href='#contact'
               className='inline-flex items-center justify-center px-10 py-4 bg-gradient-to-r from-amber-500 to-amber-400 text-gray-900 font-bold text-lg rounded-xl hover:from-amber-400 hover:to-amber-300 transition-all duration-300 shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 hover:-translate-y-0.5'
             >
               Book Free Demo

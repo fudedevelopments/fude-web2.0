@@ -45,7 +45,7 @@ export default function HeroSection() {
             <ScrollReveal delay={400}>
               <div className='flex flex-col sm:flex-row gap-4 justify-center lg:justify-start'>
                 <a
-                  href='/contactus'
+                  href='#contact'
                   className='inline-flex items-center justify-center px-8 py-3.5 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold rounded-xl hover:from-blue-500 hover:to-blue-400 transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:-translate-y-0.5'
                 >
                   Request Demo
