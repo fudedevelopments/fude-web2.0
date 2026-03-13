@@ -25,7 +25,7 @@ export default function HeroSection() {
       const data = await response.json()
       if (data.success) {
         setResult('success')
-        ;(event.target as HTMLFormElement).reset()
+          ; (event.target as HTMLFormElement).reset()
       } else {
         setResult('error')
       }
@@ -73,7 +73,7 @@ export default function HeroSection() {
                 complete transparency, and smart campus operations. One platform to manage
                 everything — from admissions to alumni.
               </p>
-              
+
               {/* Shine Unique Highlight */}
               <div className='bg-gradient-to-r from-blue-900/60 to-purple-900/60 border border-amber-500/30 rounded-2xl p-5 mb-8 backdrop-blur-md relative overflow-hidden group shadow-[0_0_20px_rgba(245,158,11,0.15)]'>
                 <div className='absolute -inset-1 bg-gradient-to-r from-amber-500/0 via-amber-500/20 to-amber-500/0 blur-lg group-hover:via-amber-500/40 transition-all duration-1000 animate-[shimmer_3s_infinite]' />
@@ -84,7 +84,7 @@ export default function HeroSection() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className='text-white font-bold text-lg mb-1 leading-tight'>Shine Unique Across All Schools</h3>
+                    <h3 className='text-white font-bold text-lg mb-1 leading-tight' style={{ color: 'white' }}>Shine Unique Across All Schools</h3>
                     <p className='text-blue-200 text-sm font-medium'>
                       Stop being just another school. Use our AI platform to become the undeniable <span className='text-amber-400 font-bold'>#1 tech-driven educational leader</span> in your city.
                     </p>
@@ -134,7 +134,7 @@ export default function HeroSection() {
 
           {/* Right Visual - Demo Form for Ads */}
           <ScrollReveal direction='right' delay={200}>
-             <div className='bg-white rounded-2xl border border-gray-100 shadow-2xl p-6 sm:p-8 relative'>
+            <div className='bg-white rounded-2xl border border-gray-100 shadow-2xl p-6 sm:p-8 relative'>
               {result === 'success' ? (
                 <div className='text-center py-10'>
                   <div className='w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4'>

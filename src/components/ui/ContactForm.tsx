@@ -1,11 +1,41 @@
-﻿'use client'
+'use client'
 
-import { useForm, ValidationError } from '@formspree/react'
+import { useState } from 'react'
 
 export default function ContactForm() {
-  const [state, handleSubmit] = useForm('mkgzlead')
+  const [result, setResult] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  if (state.succeeded) {
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    setIsSubmitting(true)
+    setResult('')
+
+    const formData = new FormData(event.currentTarget)
+    formData.append('access_key', 'e79fa461-4fa3-400b-be52-72d4d02d8432')
+    formData.append('subject', 'Fude Development - General Inquiry')
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      })
+
+      const data = await response.json()
+      if (data.success) {
+        setResult('success')
+        ;(event.target as HTMLFormElement).reset()
+      } else {
+        setResult('error')
+      }
+    } catch {
+      setResult('error')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  if (result === 'success') {
     return (
       <div className='text-center py-8'>
         <div className='w-14 h-14 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4'>
@@ -14,13 +44,19 @@ export default function ContactForm() {
           </svg>
         </div>
         <h3 className='text-lg font-semibold text-gray-900 mb-2'>Message Sent!</h3>
-        <p className='text-gray-500 text-sm'>We will get back to you shortly.</p>
+        <p className='text-gray-500 text-sm mb-4'>We will get back to you shortly.</p>
+        <button
+          onClick={() => setResult('')}
+          className='text-sm text-blue-900 font-medium hover:underline'
+        >
+          Send another message
+        </button>
       </div>
     )
   }
 
   return (
-    <form onSubmit={handleSubmit} className='space-y-5'>
+    <form onSubmit={onSubmit} className='space-y-5'>
       <div>
         <label htmlFor='email' className='block text-sm font-medium text-gray-700 mb-1.5'>
           Email Address
@@ -33,7 +69,6 @@ export default function ContactForm() {
           placeholder='you@example.com'
           className='w-full px-4 py-2.5 rounded-lg border border-gray-200 bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-900/20 focus:border-blue-900 transition-colors text-sm'
         />
-        <ValidationError prefix='Email' field='email' errors={state.errors} className='text-red-500 text-xs mt-1' />
       </div>
 
       <div>
@@ -47,7 +82,6 @@ export default function ContactForm() {
           placeholder='+91 XXXXX XXXXX'
           className='w-full px-4 py-2.5 rounded-lg border border-gray-200 bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-900/20 focus:border-blue-900 transition-colors text-sm'
         />
-        <ValidationError prefix='Mobile' field='mobile' errors={state.errors} className='text-red-500 text-xs mt-1' />
       </div>
 
       <div>
@@ -62,16 +96,21 @@ export default function ContactForm() {
           placeholder='Tell us about your project...'
           className='w-full px-4 py-2.5 rounded-lg border border-gray-200 bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-900/20 focus:border-blue-900 transition-colors text-sm resize-none'
         />
-        <ValidationError prefix='Message' field='message' errors={state.errors} className='text-red-500 text-xs mt-1' />
       </div>
 
       <button
         type='submit'
-        disabled={state.submitting}
+        disabled={isSubmitting}
         className='w-full bg-blue-900 text-white py-2.5 px-6 rounded-lg font-medium text-sm hover:bg-blue-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
       >
-        {state.submitting ? 'Sending...' : 'Send Message'}
+        {isSubmitting ? 'Sending...' : 'Send Message'}
       </button>
+
+      {result === 'error' && (
+        <p className='text-xs text-red-500 mt-2 text-center'>
+          Something went wrong. Please try again later.
+        </p>
+      )}
     </form>
   )
 }
