@@ -1,8 +1,41 @@
 'use client'
 
+import { useState } from 'react'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 
 export default function HeroSection() {
+  const [result, setResult] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    setIsSubmitting(true)
+    setResult('')
+
+    const formData = new FormData(event.currentTarget)
+    formData.append('access_key', 'e79fa461-4fa3-400b-be52-72d4d02d8432')
+    formData.append('subject', 'Smart School ERP - Demo Request')
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      })
+
+      const data = await response.json()
+      if (data.success) {
+        setResult('success')
+        ;(event.target as HTMLFormElement).reset()
+      } else {
+        setResult('error')
+      }
+    } catch {
+      setResult('error')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   return (
     <section className='relative overflow-hidden py-20 sm:py-28 px-4 sm:px-6 lg:px-8'>
       {/* Background glow effects */}
@@ -81,90 +114,89 @@ export default function HeroSection() {
             </ScrollReveal>
           </div>
 
-          {/* Right Visual - Dashboard Mockup */}
+          {/* Right Visual - Demo Form for Ads */}
           <ScrollReveal direction='right' delay={200}>
-            <div className='relative'>
-              {/* Main Dashboard Card */}
-              <div className='relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl'>
-                {/* Dashboard Header */}
-                <div className='flex items-center justify-between mb-6'>
-                  <div className='flex items-center gap-3'>
-                    <div className='w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center'>
-                      <svg className='w-5 h-5 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z' />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className='text-white text-sm font-semibold'>School Dashboard</p>
-                      <p className='text-blue-200 text-xs'>AI Analytics Overview</p>
-                    </div>
-                  </div>
-                  <div className='flex gap-1.5'>
-                    <div className='w-3 h-3 rounded-full bg-red-400/60' />
-                    <div className='w-3 h-3 rounded-full bg-yellow-400/60' />
-                    <div className='w-3 h-3 rounded-full bg-green-400/60' />
-                  </div>
-                </div>
-
-                {/* Stats Row */}
-                <div className='grid grid-cols-3 gap-3 mb-6'>
-                  {[
-                    { label: 'Students', value: '2,847', change: '+12%' },
-                    { label: 'Attendance', value: '94.2%', change: '+3%' },
-                    { label: 'Performance', value: 'A+', change: '+8%' },
-                  ].map((stat) => (
-                    <div key={stat.label} className='bg-white/5 rounded-xl p-3 border border-white/5'>
-                      <p className='text-blue-200 text-xs'>{stat.label}</p>
-                      <p className='text-white text-lg font-bold'>{stat.value}</p>
-                      <p className='text-green-400 text-xs'>{stat.change}</p>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Chart Mockup */}
-                <div className='bg-white/5 rounded-xl p-4 border border-white/5'>
-                  <p className='text-blue-200 text-xs mb-3'>Weekly Analytics</p>
-                  <div className='flex items-end gap-2 h-24'>
-                    {[40, 65, 45, 80, 55, 90, 70].map((h, i) => (
-                      <div key={i} className='flex-1 rounded-t-md bg-gradient-to-t from-blue-600/60 to-blue-400/40' style={{ height: `${h}%` }} />
-                    ))}
-                  </div>
-                  <div className='flex justify-between mt-2'>
-                    {['M', 'T', 'W', 'T', 'F', 'S', 'S'].map((d, i) => (
-                      <span key={i} className='text-blue-200/60 text-xs flex-1 text-center'>{d}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating Mobile Card */}
-              <div className='absolute -bottom-6 -left-6 sm:-left-10 w-36 sm:w-44 bg-white/10 backdrop-blur-xl border border-white/10 rounded-2xl p-3 shadow-xl animate-float'>
-                <div className='flex items-center gap-2 mb-2'>
-                  <div className='w-6 h-6 bg-green-500/20 rounded-lg flex items-center justify-center'>
-                    <svg className='w-3 h-3 text-green-400' fill='currentColor' viewBox='0 0 20 20'><path fillRule='evenodd' d='M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z' clipRule='evenodd' /></svg>
-                  </div>
-                  <span className='text-white text-xs font-medium'>Bus Tracking</span>
-                </div>
-                <div className='bg-white/5 rounded-lg p-2'>
-                  <p className='text-green-400 text-xs font-medium'>Bus #12 - Active</p>
-                  <p className='text-blue-300/40 text-[10px]'>ETA: 5 minutes</p>
-                </div>
-              </div>
-
-              {/* Floating Notification */}
-              <div className='absolute -top-4 -right-4 sm:-right-8 bg-white/10 backdrop-blur-xl border border-white/10 rounded-2xl p-3 shadow-xl animate-float delay-300'>
-                <div className='flex items-center gap-2'>
-                  <div className='w-8 h-8 bg-amber-500/20 rounded-lg flex items-center justify-center'>
-                    <svg className='w-4 h-4 text-amber-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                      <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9' />
+             <div className='bg-white rounded-2xl border border-gray-100 shadow-2xl p-6 sm:p-8 relative'>
+              {result === 'success' ? (
+                <div className='text-center py-10'>
+                  <div className='w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4'>
+                    <svg className='w-8 h-8 text-green-500' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                      <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M5 13l4 4L19 7' />
                     </svg>
                   </div>
-                  <div>
-                    <p className='text-white text-xs font-medium'>AI Alert</p>
-                    <p className='text-blue-100/70 text-[10px]'>Attendance anomaly detected</p>
-                  </div>
+                  <h3 className='text-xl font-bold text-gray-900 mb-2'>Request Received!</h3>
+                  <p className='text-sm text-gray-500 mb-6'>
+                    We'll contact you shortly to schedule your personalized demo.
+                  </p>
+                  <button
+                    onClick={() => setResult('')}
+                    className='inline-flex px-6 py-2.5 bg-blue-50 text-blue-700 font-medium rounded-xl hover:bg-blue-100 transition-all text-sm'
+                  >
+                    Send Another Request
+                  </button>
                 </div>
-              </div>
+              ) : (
+                <>
+                  <div className='mb-6'>
+                    <h3 className='text-2xl font-bold text-gray-900 mb-2'>Request a Free Demo</h3>
+                    <p className='text-sm text-gray-500'>
+                      Fill in your details and we'll schedule a personalized walkthrough.
+                    </p>
+                  </div>
+
+                  <form onSubmit={onSubmit} className='space-y-4'>
+                    <div>
+                      <input
+                        type='text'
+                        name='name'
+                        required
+                        placeholder='Full Name *'
+                        className='w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all text-sm'
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type='text'
+                        name='school_name'
+                        required
+                        placeholder='School / Institution Name *'
+                        className='w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all text-sm'
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type='tel'
+                        name='phone'
+                        required
+                        placeholder='Phone Number *'
+                        pattern='[+]?[0-9\s\-]{7,15}'
+                        title='Please enter a valid phone number'
+                        className='w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all text-sm'
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type='email'
+                        name='email'
+                        placeholder='Email Address (optional)'
+                        className='w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all text-sm'
+                      />
+                    </div>
+                    <button
+                      type='submit'
+                      disabled={isSubmitting}
+                      className='w-full flex items-center justify-center px-6 py-3.5 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold rounded-xl hover:from-blue-500 hover:to-blue-400 transition-all shadow-lg hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0'
+                    >
+                      {isSubmitting ? 'Sending Request...' : 'Get Your Free Demo'}
+                    </button>
+                    {result === 'error' && (
+                      <p className='text-xs text-red-500 text-center mt-2'>
+                        Something went wrong. Please try again.
+                      </p>
+                    )}
+                  </form>
+                </>
+              )}
             </div>
           </ScrollReveal>
         </div>
