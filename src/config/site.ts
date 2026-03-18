@@ -8,8 +8,8 @@ export const siteConfig = {
 
   websiteUrl: 'https://www.fude.in',
 
-  companyEmail: 'contact@fudedevelopments.com',
-  supportEmail: 'fudedevelopments@gmail.com',
+  companyEmail: 'info@fude.in',
+  supportEmail: 'info@fude.in',
   phone: '+91 9994025037',
   phoneHref: 'tel:+919994025037',
 

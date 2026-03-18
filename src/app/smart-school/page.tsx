@@ -147,8 +147,8 @@ export default function SmartSchoolPage() {
       <div className='-mt-16'>
         <HeroSection />
         <AiLearningSection />
-        <DashboardPreviewSection />
         <ParentsMobileSection />
+        <DashboardPreviewSection />
         <CoreFeaturesSection />
         <WhyChooseUsSection />
         <DemoRequestForm />
