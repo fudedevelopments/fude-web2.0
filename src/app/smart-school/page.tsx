@@ -1,22 +1,22 @@
 import type { Metadata } from 'next'
 import HeroSection from '@/components/sections/smart-school/HeroSection'
-import AiLearningSection from '@/components/sections/smart-school/AiLearningSection'
-import CoreFeaturesSection from '@/components/sections/smart-school/CoreFeaturesSection'
-import DashboardPreviewSection from '@/components/sections/smart-school/DashboardPreviewSection'
-import ParentsMobileSection from '@/components/sections/smart-school/ParentsMobileSection'
-import WhyChooseUsSection from '@/components/sections/smart-school/WhyChooseUsSection'
-import DemoRequestForm from '@/components/sections/smart-school/DemoRequestForm'
-import ClosingCTASection from '@/components/sections/smart-school/ClosingCTASection'
+import FeaturesSection from '@/components/sections/smart-school/FeaturesSection'
+import HowItWorksSection from '@/components/sections/smart-school/HowItWorksSection'
+import PersonalizedExperienceSection from '@/components/sections/smart-school/PersonalizedExperienceSection'
+import TestimonialsSection from '@/components/sections/smart-school/TestimonialsSection'
+import CTASection from '@/components/sections/smart-school/CTASection'
+import SmartSchoolFooter from '@/components/sections/smart-school/SmartSchoolFooter'
 import siteConfig from '@/config/site'
+import { PLATFORM_NAME } from '@/config/smartSchool'
 import { pageKeywords } from '@/config/seo-keywords'
 import { smartSchoolFaqSchema } from '@/lib/structured-data'
 
 const PAGE_URL = `${siteConfig.websiteUrl}/smart-school/`
 
 export const metadata: Metadata = {
-  title: 'AI-Powered Smart School Management System | Fude Development',
+  title: `${PLATFORM_NAME} Student AI Learning Platform | Fude Development`,
   description:
-    'Transform your school with AI-powered ERP by Fude Development. Manage admissions, attendance, fees, exams, parent communication, and live bus tracking from one platform. Serving schools in Erode, Coimbatore, Tiruppur, Salem, Karur, and across Tamil Nadu.',
+    `Empower students with ${PLATFORM_NAME} — a personalised AI learning platform by Fude Development. Adaptive lessons, real-time progress tracking, and intelligent study plans tailored to every student.`,
   keywords: [...pageKeywords.smartSchool],
   alternates: {
     canonical: PAGE_URL,
@@ -33,9 +33,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'AI-Powered Smart School Management System | Fude Development',
+    title: `${PLATFORM_NAME} Student AI Learning Platform | Fude Development`,
     description:
-      'Transform your school with AI-powered ERP. Automate administration, track buses in real-time, manage fees & attendance, and deliver personalised learning — all in one platform.',
+      `Empower students with ${PLATFORM_NAME}. Personalised AI-driven lessons, adaptive study plans, and real-time progress insights — all in one platform.`,
     url: PAGE_URL,
     siteName: 'Fude Development',
     type: 'website',
@@ -43,9 +43,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI-Powered Smart School Management System | Fude Development',
+    title: `${PLATFORM_NAME} Student AI Learning Platform | Fude Development`,
     description:
-      'One platform to manage admissions, attendance, bus tracking, fee collection, AI learning, and parent communication. Trusted by schools across Tamil Nadu.',
+      `Personalised AI learning for every student. Adaptive lessons, progress tracking, and intelligent study plans powered by ${PLATFORM_NAME}.`,
     site: '@fudedevelopment',
     creator: '@fudedevelopment',
   },
@@ -56,30 +56,12 @@ export const metadata: Metadata = {
 const softwareApplicationSchema = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: 'Smart School Management System by Fude Development',
+  name: `${PLATFORM_NAME} Student AI Learning Platform by Fude Development`,
   applicationCategory: 'EducationalApplication',
   operatingSystem: 'Web, Android, iOS',
   url: PAGE_URL,
   description:
-    'An AI-powered school ERP platform offering live bus tracking, AI syllabus-based learning, attendance management, fee collection, parent communication, and real-time analytics — built for schools in India.',
-  featureList: [
-    'AI Syllabus-Based Personalised Learning',
-    'Live GPS Bus Tracking with Parent Alerts',
-    'Homework & Parent-Teacher Communication',
-    'Real-Time Attendance Analytics',
-    'Admin Dashboard with School Insights',
-    'Fee Collection & Management',
-    'Automated Report Card Generation',
-    'AI-Powered Automation for Routine Tasks',
-    'Secure Cloud-Based Platform',
-    '24/7 Dedicated Support',
-  ],
-  offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'INR',
-    description: 'Free 30-day trial with no hidden charges',
-  },
+    `An AI-powered student learning platform offering personalised lessons, adaptive study plans, real-time progress tracking, and intelligent recommendations — built for schools across India.`,
   provider: {
     '@type': 'Organization',
     name: 'Fude Development',
@@ -96,13 +78,6 @@ const softwareApplicationSchema = {
       email: 'contact@fudedevelopments.com',
       areaServed: ['Erode', 'Coimbatore', 'Tiruppur', 'Tamil Nadu', 'India'],
     },
-  },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    reviewCount: '38',
-    bestRating: '5',
-    worstRating: '1',
   },
 }
 
@@ -145,14 +120,27 @@ export default function SmartSchoolPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <div className='-mt-16'>
-        <HeroSection />
-        <AiLearningSection />
-        <ParentsMobileSection />
-        <DashboardPreviewSection />
-        <CoreFeaturesSection />
-        <WhyChooseUsSection />
-        <DemoRequestForm />
-        <ClosingCTASection />
+        <div data-testid='section-hero'>
+          <HeroSection />
+        </div>
+        <div data-testid='section-features'>
+          <FeaturesSection />
+        </div>
+        <div data-testid='section-how-it-works'>
+          <HowItWorksSection />
+        </div>
+        <div data-testid='section-personalized'>
+          <PersonalizedExperienceSection />
+        </div>
+        <div data-testid='section-testimonials'>
+          <TestimonialsSection />
+        </div>
+        <div data-testid='section-cta'>
+          <CTASection />
+        </div>
+        <div data-testid='section-footer'>
+          <SmartSchoolFooter />
+        </div>
       </div>
     </>
   )

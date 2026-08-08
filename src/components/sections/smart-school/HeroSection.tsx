@@ -1,222 +1,180 @@
 'use client'
 
-import { useState } from 'react'
-import ScrollReveal from '@/components/ui/ScrollReveal'
+import { motion } from 'framer-motion'
+
+// Floating particle data — positions are fixed to avoid hydration mismatch
+const PARTICLES = [
+  { id: 1, x: '10%', y: '20%', size: 4, delay: 0, duration: 6 },
+  { id: 2, x: '85%', y: '15%', size: 6, delay: 1, duration: 8 },
+  { id: 3, x: '25%', y: '75%', size: 3, delay: 2, duration: 7 },
+  { id: 4, x: '70%', y: '60%', size: 5, delay: 0.5, duration: 9 },
+  { id: 5, x: '50%', y: '10%', size: 4, delay: 1.5, duration: 6.5 },
+  { id: 6, x: '90%', y: '80%', size: 3, delay: 3, duration: 7.5 },
+  { id: 7, x: '5%', y: '55%', size: 5, delay: 2.5, duration: 8.5 },
+  { id: 8, x: '60%', y: '90%', size: 4, delay: 0.8, duration: 6 },
+  { id: 9, x: '40%', y: '40%', size: 3, delay: 1.2, duration: 9 },
+  { id: 10, x: '78%', y: '35%', size: 6, delay: 3.5, duration: 7 },
+]
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 32 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: '-60px' },
+  transition: { duration: 0.65, ease: 'easeOut', delay },
+})
 
 export default function HeroSection() {
-  const [result, setResult] = useState('')
-  const [isSubmitting, setIsSubmitting] = useState(false)
-
-  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    setIsSubmitting(true)
-    setResult('')
-
-    const formData = new FormData(event.currentTarget)
-    formData.append('access_key', 'e79fa461-4fa3-400b-be52-72d4d02d8432')
-    formData.append('subject', 'Smart School ERP - Demo Request')
-
-    try {
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: formData,
-      })
-
-      const data = await response.json()
-      if (data.success) {
-        setResult('success')
-          ; (event.target as HTMLFormElement).reset()
-      } else {
-        setResult('error')
-      }
-    } catch {
-      setResult('error')
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
-
   return (
-    <section className='relative overflow-hidden py-20 sm:py-28 px-4 sm:px-6 lg:px-8'>
-      {/* Background glow effects */}
-      <div className='absolute inset-0 bg-gradient-to-br from-[#0a1628] via-[#12294d] to-[#1a1a2e]' />
-      <div className='absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse-glow' />
-      <div className='absolute bottom-1/4 right-1/4 w-80 h-80 bg-amber-500/8 rounded-full blur-3xl animate-pulse-glow delay-500' />
-      <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-400/5 rounded-full blur-3xl' />
+    <section
+      className='relative overflow-hidden min-h-screen flex items-center py-24 px-4 sm:px-6 lg:px-8'
+      aria-label='Hero'
+    >
+      {/* ── Background ── */}
+      <div className='absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#0f172a]' />
 
-      <div className='relative max-w-7xl mx-auto'>
-        <div className='grid lg:grid-cols-2 gap-12 lg:gap-16 items-center'>
-          {/* Left Content */}
-          <div className='text-center lg:text-left'>
-            <ScrollReveal>
-              <span className='inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium bg-blue-500/10 text-blue-300 border border-blue-500/20 mb-6'>
-                <span className='w-2 h-2 bg-blue-400 rounded-full animate-pulse' />
-                AI-Powered Education Platform
+      {/* Gradient orbs */}
+      <motion.div
+        className='absolute top-1/4 left-1/4 w-[480px] h-[480px] rounded-full'
+        style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.18) 0%, transparent 70%)' }}
+        animate={{ scale: [1, 1.12, 1], opacity: [0.6, 1, 0.6] }}
+        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      <motion.div
+        className='absolute bottom-1/4 right-1/4 w-[360px] h-[360px] rounded-full'
+        style={{ background: 'radial-gradient(circle, rgba(13,148,136,0.15) 0%, transparent 70%)' }}
+        animate={{ scale: [1, 1.08, 1], opacity: [0.5, 0.9, 0.5] }}
+        transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+      />
+
+      {/* Floating particles */}
+      {PARTICLES.map((p) => (
+        <motion.span
+          key={p.id}
+          className='absolute rounded-full bg-violet-400/40 pointer-events-none'
+          style={{ left: p.x, top: p.y, width: p.size, height: p.size }}
+          animate={{ y: [0, -18, 0], opacity: [0.3, 0.8, 0.3] }}
+          transition={{ duration: p.duration, repeat: Infinity, ease: 'easeInOut', delay: p.delay }}
+        />
+      ))}
+
+      {/* ── Content ── */}
+      <div className='relative z-10 max-w-7xl mx-auto w-full'>
+        <div className='grid md:grid-cols-2 gap-12 lg:gap-20 items-center'>
+
+          {/* Left column — text */}
+          <div className='text-center md:text-left'>
+            {/* Badge */}
+            <motion.div {...fadeUp(0)}>
+              <span className='inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium bg-violet-500/10 text-violet-300 border border-violet-500/20 mb-6'>
+                <span className='w-2 h-2 bg-violet-400 rounded-full animate-pulse' />
+                Next-Generation AI Learning
               </span>
-            </ScrollReveal>
+            </motion.div>
 
-            <ScrollReveal delay={100}>
-              <h1 className='text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight' style={{ background: 'linear-gradient(135deg, #ffffff 0%, #bbf7d0 50%, #4ade80 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                AI-Powered Smart School Management System
-              </h1>
-            </ScrollReveal>
+            {/* Headline — no PLATFORM_NAME */}
+            <motion.h1
+              className='text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6'
+              style={{
+                background: 'linear-gradient(135deg, #ffffff 0%, #c4b5fd 50%, #818cf8 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+              {...fadeUp(0.1)}
+            >
+              Learn Smarter,<br />Achieve More
+            </motion.h1>
 
-            <ScrollReveal delay={200}>
-              <p className='text-lg sm:text-xl text-blue-100 font-medium mb-4'>
-                Shaping the Future of Learning
-              </p>
-            </ScrollReveal>
+            {/* Two-sentence subheading */}
+            <motion.p
+              className='text-lg sm:text-xl text-slate-300 leading-relaxed mb-8 max-w-lg mx-auto md:mx-0'
+              {...fadeUp(0.2)}
+            >
+              Our AI-powered platform personalizes every study session to your unique strengths and gaps.
+              Ask questions from any textbook, generate custom tests, and watch your grades climb.
+            </motion.p>
 
-            <ScrollReveal delay={300}>
-              <p className='text-base text-blue-100/80 leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0'>
-                Transform your school with intelligent automation, AI-driven analytics,
-                complete transparency, and smart campus operations. One platform to manage
-                everything — from admissions to alumni.
-              </p>
-
-              {/* Shine Unique Highlight */}
-              <div className='bg-gradient-to-r from-blue-900/60 to-purple-900/60 border border-amber-500/30 rounded-2xl p-5 mb-8 backdrop-blur-md relative overflow-hidden group shadow-[0_0_20px_rgba(245,158,11,0.15)]'>
-                <div className='absolute -inset-1 bg-gradient-to-r from-amber-500/0 via-amber-500/20 to-amber-500/0 blur-lg group-hover:via-amber-500/40 transition-all duration-1000 animate-[shimmer_3s_infinite]' />
-                <div className='flex items-start gap-4 relative z-10 text-left'>
-                  <div className='mt-1 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full p-2 shadow-[0_0_15px_rgba(245,158,11,0.6)]'>
-                    <svg className='w-5 h-5 text-white' fill='currentColor' viewBox='0 0 20 20'>
-                      <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z' />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className='text-white font-bold text-lg mb-1 leading-tight' style={{ color: 'white' }}>Shine Unique Across All Schools</h3>
-                    <p className='text-blue-200 text-sm font-medium'>
-                      Stop being just another school. Use our AI platform to become the undeniable <span className='text-amber-400 font-bold'>#1 tech-driven educational leader</span> in your city.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal delay={400}>
-              <div className='flex flex-col sm:flex-row gap-4 justify-center lg:justify-start'>
-                <a
-                  href='#contact'
-                  className='inline-flex items-center justify-center px-8 py-3.5 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold rounded-xl hover:from-blue-500 hover:to-blue-400 transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:-translate-y-0.5'
-                >
-                  Request Demo
-                  <svg className='ml-2 w-5 h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M13 7l5 5m0 0l-5 5m5-5H6' />
-                  </svg>
-                </a>
-                <a
-                  href='#contact'
-                  className='inline-flex items-center justify-center px-8 py-3.5 border border-blue-300/50 text-blue-100 font-medium rounded-xl hover:bg-blue-500/20 hover:border-blue-300/70 transition-all duration-300'
-                >
-                  Contact Sales
-                </a>
-              </div>
-            </ScrollReveal>
-
-            {/* Trust badges */}
-            <ScrollReveal delay={500}>
-              <div className='flex flex-wrap gap-6 justify-center lg:justify-start mt-10 text-sm text-blue-200/70'>
-                <span className='flex items-center gap-2'>
-                  <svg className='w-4 h-4 text-green-400' fill='currentColor' viewBox='0 0 20 20'><path fillRule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clipRule='evenodd' /></svg>
-                  Cloud-Based
-                </span>
-                <span className='flex items-center gap-2'>
-                  <svg className='w-4 h-4 text-green-400' fill='currentColor' viewBox='0 0 20 20'><path fillRule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clipRule='evenodd' /></svg>
-                  AI-Powered
-                </span>
-                <span className='flex items-center gap-2'>
-                  <svg className='w-4 h-4 text-green-400' fill='currentColor' viewBox='0 0 20 20'><path fillRule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clipRule='evenodd' /></svg>
-                  24/7 Support
-                </span>
-              </div>
-            </ScrollReveal>
+            {/* CTA buttons */}
+            <motion.div
+              className='flex flex-col sm:flex-row gap-4 justify-center md:justify-start'
+              {...fadeUp(0.3)}
+            >
+              <a
+                href='#get-started'
+                className='inline-flex items-center justify-center px-8 py-3.5 rounded-xl font-semibold text-white transition-all duration-200 hover:scale-105 hover:shadow-[0_0_24px_rgba(124,58,237,0.5)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400'
+                style={{ background: 'linear-gradient(135deg, #7c3aed, #4f46e5)' }}
+              >
+                Get Started
+              </a>
+              <a
+                href='#try-now'
+                className='inline-flex items-center justify-center px-8 py-3.5 rounded-xl font-semibold text-violet-200 border border-violet-500/40 bg-violet-500/10 backdrop-blur-sm transition-all duration-200 hover:scale-105 hover:bg-violet-500/20 hover:border-violet-400/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400'
+              >
+                Try Now
+              </a>
+            </motion.div>
           </div>
 
-          {/* Right Visual - Demo Form for Ads */}
-          <ScrollReveal direction='right' delay={200}>
-            <div className='bg-white rounded-2xl border border-gray-100 shadow-2xl p-6 sm:p-8 relative'>
-              {result === 'success' ? (
-                <div className='text-center py-10'>
-                  <div className='w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4'>
-                    <svg className='w-8 h-8 text-green-500' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                      <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M5 13l4 4L19 7' />
-                    </svg>
-                  </div>
-                  <h3 className='text-xl font-bold text-gray-900 mb-2'>Request Received!</h3>
-                  <p className='text-sm text-gray-500 mb-6'>
-                    We&apos;ll contact you shortly to schedule your personalized demo.
-                  </p>
-                  <button
-                    onClick={() => setResult('')}
-                    className='inline-flex px-6 py-2.5 bg-blue-50 text-blue-700 font-medium rounded-xl hover:bg-blue-100 transition-all text-sm'
-                  >
-                    Send Another Request
-                  </button>
+          {/* Right column — glassmorphism card */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }}
+          >
+            <div
+              className='rounded-2xl p-6 sm:p-8 border border-white/10'
+              style={{
+                background: 'rgba(255,255,255,0.05)',
+                backdropFilter: 'blur(20px)',
+                WebkitBackdropFilter: 'blur(20px)',
+                boxShadow: '0 8px 40px rgba(124,58,237,0.15), inset 0 1px 0 rgba(255,255,255,0.08)',
+              }}
+            >
+              {/* Mock AI chat UI */}
+              <div className='flex items-center gap-3 mb-6'>
+                <div className='w-10 h-10 rounded-full flex items-center justify-center' style={{ background: 'linear-gradient(135deg, #7c3aed, #4f46e5)' }}>
+                  <svg className='w-5 h-5 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z' />
+                  </svg>
                 </div>
-              ) : (
-                <>
-                  <div className='mb-6'>
-                    <h3 className='text-2xl font-bold text-gray-900 mb-2'>Request a Free Demo</h3>
-                    <p className='text-sm text-gray-500'>
-                      Fill in your details and we&apos;ll schedule a personalized walkthrough.
-                    </p>
-                  </div>
+                <div>
+                  <p className='text-white font-semibold text-sm'>AI Tutor</p>
+                  <p className='text-violet-300 text-xs'>Online · Ready to help</p>
+                </div>
+              </div>
 
-                  <form onSubmit={onSubmit} className='space-y-4'>
-                    <div>
-                      <input
-                        type='text'
-                        name='name'
-                        required
-                        placeholder='Full Name *'
-                        className='w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all text-sm'
-                      />
-                    </div>
-                    <div>
-                      <input
-                        type='text'
-                        name='school_name'
-                        required
-                        placeholder='School / Institution Name *'
-                        className='w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all text-sm'
-                      />
-                    </div>
-                    <div>
-                      <input
-                        type='tel'
-                        name='phone'
-                        required
-                        placeholder='Phone Number *'
-                        pattern='[+]?[0-9\s\-]{7,15}'
-                        title='Please enter a valid phone number'
-                        className='w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all text-sm'
-                      />
-                    </div>
-                    <div>
-                      <input
-                        type='email'
-                        name='email'
-                        placeholder='Email Address (optional)'
-                        className='w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all text-sm'
-                      />
-                    </div>
-                    <button
-                      type='submit'
-                      disabled={isSubmitting}
-                      className='w-full flex items-center justify-center px-6 py-3.5 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold rounded-xl hover:from-blue-500 hover:to-blue-400 transition-all shadow-lg hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0'
-                    >
-                      {isSubmitting ? 'Sending Request...' : 'Get Your Free Demo'}
-                    </button>
-                    {result === 'error' && (
-                      <p className='text-xs text-red-500 text-center mt-2'>
-                        Something went wrong. Please try again.
-                      </p>
-                    )}
-                  </form>
-                </>
-              )}
+              <div className='space-y-3 mb-6'>
+                {/* User message */}
+                <div className='flex justify-end'>
+                  <div className='max-w-[80%] px-4 py-2.5 rounded-2xl rounded-tr-sm text-sm text-white' style={{ background: 'linear-gradient(135deg, #7c3aed, #4f46e5)' }}>
+                    Explain Newton&apos;s second law with an example
+                  </div>
+                </div>
+                {/* AI response */}
+                <div className='flex justify-start'>
+                  <div className='max-w-[85%] px-4 py-2.5 rounded-2xl rounded-tl-sm text-sm text-slate-200 bg-white/8 border border-white/10'>
+                    F = ma — force equals mass times acceleration. Push a 2 kg box with 10 N and it accelerates at 5 m/s².
+                  </div>
+                </div>
+              </div>
+
+              {/* Stats row */}
+              <div className='grid grid-cols-3 gap-3 pt-4 border-t border-white/10'>
+                {[
+                  { label: 'Questions Answered', value: '10K+' },
+                  { label: 'Avg. Score Boost', value: '+34%' },
+                  { label: 'Active Learners', value: '5K+' },
+                ].map((stat) => (
+                  <div key={stat.label} className='text-center'>
+                    <p className='text-violet-300 font-bold text-lg'>{stat.value}</p>
+                    <p className='text-slate-400 text-xs leading-tight mt-0.5'>{stat.label}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </ScrollReveal>
+          </motion.div>
+
         </div>
       </div>
     </section>
