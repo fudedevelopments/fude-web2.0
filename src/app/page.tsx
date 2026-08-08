@@ -1,6 +1,7 @@
 ﻿import Image from 'next/image'
 import Link from 'next/link'
 import ScrollReveal from '@/components/ui/ScrollReveal'
+import OurClientsSection from '@/components/sections/OurClientsSection'
 import { homeFaqSchema } from '@/lib/structured-data'
 
 export default function Home() {
@@ -118,6 +119,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Our Clients */}
+      <OurClientsSection />
 
       {/* Smart School Promo Banner */}
       <section className='py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden'>

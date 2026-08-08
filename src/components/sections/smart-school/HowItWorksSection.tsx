@@ -35,7 +35,7 @@ const fadeSlide = (index: number) => ({
   initial: { opacity: 0, y: 32 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: '-60px' },
-  transition: { duration: 0.55, ease: 'easeOut', delay: index * 0.12 },
+  transition: { duration: 0.55, ease: 'easeOut' as const, delay: index * 0.12 },
 })
 
 export default function HowItWorksSection() {

@@ -1,8 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
-import { motion, useMotionValue, useSpring, useInView } from 'framer-motion'
-import { useEffect } from 'react'
+import { motion, useInView } from 'framer-motion'
 
 export interface SubjectProgress {
   name: string
@@ -23,19 +22,13 @@ const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: '-60px' },
-  transition: { duration: 0.6, ease: 'easeOut', delay },
+  transition: { duration: 0.6, ease: 'easeOut' as const, delay },
 })
 
 // Animated circular progress ring
 function CircularProgress({ value }: { value: number }) {
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
-  const motionVal = useMotionValue(0)
-  const spring = useSpring(motionVal, { stiffness: 60, damping: 20 })
-
-  useEffect(() => {
-    if (inView) motionVal.set(value)
-  }, [inView, motionVal, value])
 
   const radius = 54
   const circumference = 2 * Math.PI * radius
@@ -55,11 +48,6 @@ function CircularProgress({ value }: { value: number }) {
           strokeWidth='10'
           strokeLinecap='round'
           strokeDasharray={circumference}
-          style={{
-            strokeDashoffset: spring.get
-              ? undefined
-              : circumference * (1 - value / 100),
-          }}
           strokeDashoffset={circumference * (1 - (inView ? value : 0) / 100)}
           transition={{ duration: 1.2, ease: 'easeOut' }}
         />
@@ -89,12 +77,6 @@ function CircularProgress({ value }: { value: number }) {
 function SubjectBar({ subject, index }: { subject: SubjectProgress; index: number }) {
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
-  const motionVal = useMotionValue(0)
-  const spring = useSpring(motionVal, { stiffness: 55, damping: 18 })
-
-  useEffect(() => {
-    if (inView) motionVal.set(subject.percentage)
-  }, [inView, motionVal, subject.percentage])
 
   return (
     <motion.div
@@ -115,11 +97,10 @@ function SubjectBar({ subject, index }: { subject: SubjectProgress; index: numbe
       <div className='h-2 rounded-full bg-white/8 overflow-hidden'>
         <motion.div
           className='h-full rounded-full'
-          style={{ backgroundColor: subject.color }}
+          style={{ backgroundColor: subject.color, transformOrigin: 'left' }}
           initial={{ scaleX: 0 }}
           animate={inView ? { scaleX: subject.percentage / 100 } : { scaleX: 0 }}
           transition={{ duration: 1, ease: 'easeOut', delay: index * 0.1 + 0.3 }}
-          transformOrigin='left'
         />
       </div>
     </motion.div>

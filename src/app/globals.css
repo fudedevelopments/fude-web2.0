@@ -328,3 +328,29 @@ h1, h2, h3, h4, h5, h6 {
 .animate-screen-glow {
   animation: screenGlow 3s ease-in-out infinite;
 }
+
+/* Our Clients — infinite logo marquee */
+@keyframes clientsMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.clients-marquee {
+  animation-name: clientsMarquee;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.clients-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clients-marquee {
+    animation: none;
+  }
+}
