@@ -17,6 +17,7 @@ export const clients: Client[] = [
   { name: 'Karunya School', logo: '/images/ourclients/karunya-school.png' },
   { name: 'Oorupro', logo: '/images/ourclients/oorupro.png' },
   { name: 'Rigro', logo: '/images/ourclients/rigro.jpg' },
+  { name: 'S3 Tech', logo: '/images/ourclients/s3-tech.png' },
   { name: 'SK Enterprises', logo: '/images/ourclients/sk-enterprises.png' },
   { name: 'Sri Lakshmi Wire Netting', logo: '/images/ourclients/sri-lakshmi-wire-netting.jpg' },
   { name: 'Tanzo', logo: '/images/ourclients/tanzo.png' },
