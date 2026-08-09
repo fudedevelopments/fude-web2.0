@@ -14,7 +14,7 @@ export default function OurClientsSection() {
   const animationDuration = `${baseSet.length * 4.5}s`
 
   return (
-    <section className='py-16 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden'>
+    <section className='py-16 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-white'>
       <div className='max-w-6xl mx-auto'>
         <ScrollReveal>
           <div className='text-center mb-12'>
@@ -36,24 +36,24 @@ export default function OurClientsSection() {
         <div className='pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-white to-transparent z-10' />
 
         <div
-          className='clients-marquee flex w-max'
+          className='clients-marquee flex w-max items-start'
           style={{ animationDuration }}
         >
           {track.map((client, index) => (
             <div
               key={`${client.name}-${index}`}
-              className='flex flex-col items-center justify-center gap-3 mx-5 sm:mx-8 shrink-0 w-36 sm:w-44'
+              className='flex flex-col items-center gap-3 mx-4 sm:mx-6 shrink-0 w-32 sm:w-36'
             >
-              <div className='relative w-full h-20 sm:h-24 bg-white border border-gray-100 rounded-2xl shadow-sm hover-lift flex items-center justify-center p-4 grayscale hover:grayscale-0 transition-all duration-300'>
+              <div className='relative aspect-square w-full bg-white border border-gray-100 rounded-2xl shadow-sm hover-lift flex items-center justify-center p-5 sm:p-6 grayscale hover:grayscale-0 transition-all duration-300'>
                 <Image
                   src={client.logo}
                   alt={`${client.name} logo`}
                   fill
-                  className='object-contain p-3'
-                  sizes='176px'
+                  className='object-contain p-4'
+                  sizes='144px'
                 />
               </div>
-              <span className='text-sm font-medium text-gray-500'>{client.name}</span>
+              <span className='text-sm font-medium text-gray-500 text-center leading-snug'>{client.name}</span>
             </div>
           ))}
         </div>
