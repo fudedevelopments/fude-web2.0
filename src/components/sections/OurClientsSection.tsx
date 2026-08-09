@@ -32,8 +32,8 @@ export default function OurClientsSection() {
       </div>
 
       <div className='relative'>
-        <div className='pointer-events-none absolute inset-y-0 left-0 w-24 sm:w-40 bg-gradient-to-r from-white via-white to-transparent z-10' />
-        <div className='pointer-events-none absolute inset-y-0 right-0 w-24 sm:w-40 bg-gradient-to-l from-white via-white to-transparent z-10' />
+        <div className='pointer-events-none absolute inset-y-0 left-0 w-32 sm:w-44 bg-gradient-to-r from-white via-white to-transparent z-10' />
+        <div className='pointer-events-none absolute inset-y-0 right-0 w-32 sm:w-44 bg-gradient-to-l from-white via-white to-transparent z-10' />
 
         <div
           className='clients-marquee flex w-max items-start'
@@ -44,12 +44,12 @@ export default function OurClientsSection() {
               key={`${client.name}-${index}`}
               className='flex flex-col items-center gap-3 mx-4 sm:mx-6 shrink-0 w-24 sm:w-28'
             >
-              <div className='relative w-20 h-20 sm:w-24 sm:h-24 bg-white border border-gray-100 rounded-full shadow-sm hover-lift overflow-hidden flex items-center justify-center'>
+              <div className='relative w-20 h-20 sm:w-24 sm:h-24 bg-white border border-gray-100 rounded-full shadow-sm hover-lift overflow-hidden'>
                 <Image
                   src={client.logo}
                   alt={`${client.name} logo`}
                   fill
-                  className='object-contain p-4'
+                  className='object-cover'
                   sizes='96px'
                 />
               </div>
